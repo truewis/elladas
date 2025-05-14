@@ -1,6 +1,8 @@
 package com.truewis.elladas
 
 import CardActor
+import CardActorState
+import TopStatusBar
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.math.MathUtils
@@ -11,13 +13,17 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.ui.Window
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener
+import kotlinx.serialization.json.*
 import com.badlogic.gdx.utils.ScreenUtils
 import com.badlogic.gdx.utils.viewport.FitViewport
+import ktx.scene2d.Scene2DSkin
+import java.io.File
 
 /** [com.badlogic.gdx.ApplicationListener] implementation shared by all platforms.  */
 class Main : ApplicationAdapter() {
-    private var stage: Stage? = null
-    private var skin: Skin? = null
+    private lateinit var stage: Stage
+    private lateinit var skin: Skin
+    private lateinit var statusBar:TopStatusBar
 
     override fun create() {
         stage = Stage(FitViewport(640f, 480f))
@@ -38,32 +44,57 @@ class Main : ApplicationAdapter() {
         // We round the window position to avoid awkward half-pixel artifacts.
         // Casting using (int) would also work.
         window.setPosition(
-            MathUtils.roundPositive(stage!!.getWidth() / 2f - window.getWidth() / 2f).toFloat(),
-            MathUtils.roundPositive(stage!!.getHeight() / 2f - window.getHeight() / 2f).toFloat()
+            MathUtils.roundPositive(stage.width / 2f - window.getWidth() / 2f).toFloat(),
+            MathUtils.roundPositive(stage.height / 2f - window.getHeight() / 2f).toFloat()
         )
         window.addAction(Actions.sequence(Actions.alpha(0f), Actions.fadeIn(1f)))
-        stage!!.addActor(window)
+        //stage!!.addActor(window)
+        Scene2DSkin.defaultSkin = skin
+        val card = CardActor(stage, skin, storyJson.keys.random(), arrayListOf(this::func))
+        stage.addActor(card)
+        statusBar = TopStatusBar(skin)
+        stage.addActor(statusBar)
+        stage.addActor(Separator())
 
-        val drawable = skin!!.getDrawable("button-normal") // or use a custom NinePatchDrawable
-        val card = CardActor(stage!!, skin!!, drawable, "Do you accept the quest?")
-        stage!!.addActor(card)
 
+        Gdx.input.inputProcessor = stage
+    }
 
-        Gdx.input.setInputProcessor(stage)
+    fun func(s:CardActorState, key:String){
+        val yesNumbers = listOf(storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?:0,
+            storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?:0,
+            storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?:0)
+        val noNumbers = listOf(storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?:0,
+            storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?:0,
+            storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?:0)
+when(s){
+    CardActorState.YES -> statusBar.updateValues(yesNumbers)
+    CardActorState.YES_TILT -> statusBar.previewValues(yesNumbers)
+    CardActorState.NEUTRAL -> statusBar.previewValues(listOf(0,0,0))
+    CardActorState.NO_TILT -> statusBar.previewValues(noNumbers)
+    CardActorState.NO -> statusBar.updateValues(noNumbers)
+}
     }
 
     override fun render() {
         ScreenUtils.clear(0f, 0f, 0f, 1f)
-        stage!!.act(Gdx.graphics.getDeltaTime())
-        stage!!.draw()
+        stage.act(Gdx.graphics.deltaTime)
+        stage.draw()
     }
 
     override fun resize(width: Int, height: Int) {
-        stage!!.getViewport().update(width, height)
+        stage.viewport.update(width, height)
     }
 
     override fun dispose() {
-        stage!!.dispose()
-        skin!!.dispose()
+        stage.dispose()
+        skin.dispose()
+    }
+
+    companion object {
+        val exhaustedKeys = hashSetOf<String>()
+        val storyJson = Json.parseToJsonElement(
+            Gdx.files?.internal("story.json")?.readString() ?: File("../assets/story.json").readText()
+        ).jsonObject
     }
 }

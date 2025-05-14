@@ -1,0 +1,41 @@
+{
+  "key1": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+      "religion": 5
+    },
+    "noDelta": {
+      "antiquity": -5,
+      "economy": 5
+    }
+
+  },
+  "key2": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+      "religion": 5
+    },
+    "noDelta": {
+      "antiquity": -5,
+      "economy": 5
+    }
+
+  },
+  "key3": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+      "religion": 5
+    },
+    "noDelta": {
+      "antiquity": -5,
+      "economy": 5
+    }
+
+  }
+}
