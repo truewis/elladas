@@ -66,16 +66,17 @@ class TopStatusBar(skin: Skin) : Table() {
 
         add(container).expand().top()
     }
-    fun updateValues(values: List<Int>) {
-        for (i in 0 until min(values.size, statusUIs.size)) {
+    fun updateValues(values: HashMap<String, Int>) {
+        val keys = listOf("religion","antiquity", "economy")
+        for (i in 0 until 3) {
             val status = statusUIs[i]
-            val newVal = values[i]
-            status.progressBar.value += newVal.toFloat()
+            val newVal = values[keys[i]]
+            status.progressBar.value = newVal!!.toFloat()
         }
     }
 
     fun previewValues(values: List<Int>) {
-        for (i in 0 until min(values.size, statusUIs.size)) {
+        for (i in 0 until 3) {
             val status = statusUIs[i]
             val newVal = values[i]
 

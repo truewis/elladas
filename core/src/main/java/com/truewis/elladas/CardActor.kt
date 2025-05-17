@@ -22,7 +22,8 @@ class CardActor(
     private val stage: Stage,
     private val skin: Skin,
     private val key: String,
-    val onStateChange: ArrayList<(CardActorState, String) -> Unit> = arrayListOf()
+    val onStateChange: ArrayList<(CardActorState, String) -> Unit> = arrayListOf(),
+    val gState:HashMap<String, Int>
 ) : Table() {
 
 
@@ -31,7 +32,6 @@ class CardActor(
             onStateChange.forEach { it(value, key) }
             field = value
         }
-
     private var startX = 0f
     private var startY = 0f
     private val threshold = 200f
@@ -46,6 +46,7 @@ class CardActor(
 
     init {
         Main.exhaustedKeys.add(key)
+        onStateChange.forEach { it(CardActorState.NEUTRAL, key) }
         width = 200f
         height = 350f
         setOrigin(Align.center)
@@ -88,6 +89,7 @@ class CardActor(
                 Actions.moveTo(offX, startY, 0.3f),
                 Actions.run {
                     remove()
+                    if(key !in Main.endingKeys)
                     generateNewCard()
                 }
             )
@@ -95,8 +97,26 @@ class CardActor(
     }
 
     private fun generateNewCard() {
-        val newCard = CardActor(stage, skin, (Main.storyJson.keys - exhaustedKeys).random(), onStateChange)
-        stage.addActor(newCard)
+        isEnding().also {
+            if (it != null) {
+                val newCard =
+                    CardActor(stage, skin, it, onStateChange, gState)
+                stage.addActor(newCard)
+            } else {
+                val newCard =
+                    CardActor(stage, skin, (Main.storyJson.keys - exhaustedKeys).random(), onStateChange, gState)
+                stage.addActor(newCard)
+            }
+        }
+    }
+
+    private fun isEnding():String?{
+        if(gState["religion"]!!>=100) return "religion"
+        if(gState["religion"]!!<=0) return "lowReligion"
+        if(gState["economy"]!!<=0) return "lowEconomy"
+        if(gState["antiquity"]!!<=0) return "lowAntiquity"
+        if(gState["time"]!!>=20) return "mundane"
+        return null
     }
 
 }

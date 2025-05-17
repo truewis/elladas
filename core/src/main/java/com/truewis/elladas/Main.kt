@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
+import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.ui.Window
@@ -24,23 +25,43 @@ class Main : ApplicationAdapter() {
     private lateinit var stage: Stage
     private lateinit var skin: Skin
     private lateinit var statusBar:TopStatusBar
+    private lateinit var separator: Separator
+    private lateinit var window:Window
+    private lateinit var endingDescription:Label
+    val gState = hashMapOf("religion" to 50, "antiquity" to 50, "economy" to 50, "time" to 0)
 
+    fun startAgain(){
+        gState["religion"] = 50
+        gState["antiquity"] = 50
+        gState["economy"] = 50
+        gState["time"] = 0
+        exhaustedKeys.clear()
+        val card = CardActor(stage, skin, "tutorial", arrayListOf(this::func), gState)
+        stage.addActor(card)
+        statusBar.updateValues(gState)
+        separator.setVis(left = false, right = false)
+        window.isVisible = false
+    }
     override fun create() {
         stage = Stage(FitViewport(640f, 480f))
         skin = Skin(Gdx.files.internal("ui/uiskin.json"))
 
-        val window = Window("Example screen", skin, "border")
+        window = Window("Game Over", skin, "border")
+        endingDescription= Label("", skin)
+        endingDescription.wrap = true
+
         window.defaults().pad(4f)
-        window.add("This is a simple Scene2D view.").row()
-        val button = TextButton("Click me!", skin)
+        window.add(endingDescription).grow().row()
+        val button = TextButton("New Game", skin)
         button.pad(8f)
         button.addListener(object : ChangeListener() {
             override fun changed(event: ChangeEvent?, actor: Actor?) {
-                button.setText("Clicked.")
+                startAgain()
             }
         })
-        window.add<TextButton?>(button)
+        window.add(button)
         window.pack()
+        window.setFillParent(true)
         // We round the window position to avoid awkward half-pixel artifacts.
         // Casting using (int) would also work.
         window.setPosition(
@@ -48,32 +69,107 @@ class Main : ApplicationAdapter() {
             MathUtils.roundPositive(stage.height / 2f - window.getHeight() / 2f).toFloat()
         )
         window.addAction(Actions.sequence(Actions.alpha(0f), Actions.fadeIn(1f)))
-        //stage!!.addActor(window)
+        window.isVisible =false
         Scene2DSkin.defaultSkin = skin
-        val card = CardActor(stage, skin, storyJson.keys.random(), arrayListOf(this::func))
-        stage.addActor(card)
         statusBar = TopStatusBar(skin)
         stage.addActor(statusBar)
-        stage.addActor(Separator())
 
 
+
+        separator = Separator()
+        stage.addActor(separator)
+        separator.setVis(left = false, right = false)
+
+
+
+
+        val card = CardActor(stage, skin, "tutorial", arrayListOf(this::func), gState)
+        stage.addActor(card)
+
+
+
+        stage.addActor(window)
         Gdx.input.inputProcessor = stage
     }
 
     fun func(s:CardActorState, key:String){
-        val yesNumbers = listOf(storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?:0,
-            storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?:0,
-            storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?:0)
-        val noNumbers = listOf(storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?:0,
-            storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?:0,
-            storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?:0)
-when(s){
-    CardActorState.YES -> statusBar.updateValues(yesNumbers)
-    CardActorState.YES_TILT -> statusBar.previewValues(yesNumbers)
-    CardActorState.NEUTRAL -> statusBar.previewValues(listOf(0,0,0))
-    CardActorState.NO_TILT -> statusBar.previewValues(noNumbers)
-    CardActorState.NO -> statusBar.updateValues(noNumbers)
-}
+        if(key !in endingKeys) {
+            val yesNumbers = listOf(
+                storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?: 0,
+                storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?: 0,
+                storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?: 0
+            )
+            val noNumbers = listOf(
+                storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?: 0,
+                storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?: 0,
+                storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?: 0
+            )
+
+            val rightText = storyJson[key]!!.jsonObject["yes"]?.jsonPrimitive?.content ?: "YES"
+            val leftText = storyJson[key]!!.jsonObject["no"]?.jsonPrimitive?.content ?: "NO"
+            when (s) {
+                CardActorState.YES -> {
+                    gState["religion"] = gState["religion"]!! + yesNumbers[0]
+                    gState["antiquity"] = gState["antiquity"]!! + yesNumbers[1]
+                    gState["economy"] = gState["economy"]!! + yesNumbers[2]
+                    statusBar.updateValues(gState)
+                }
+
+                CardActorState.YES_TILT -> {
+                    statusBar.previewValues(yesNumbers)
+                    separator.setVis(left = true, right = false)
+                }
+
+                CardActorState.NEUTRAL -> {
+                    statusBar.previewValues(listOf(0, 0, 0))
+                    separator.setTexts(rightText, leftText)
+                    separator.setVis(left = false, right = false)
+                }
+
+                CardActorState.NO_TILT -> {
+                    statusBar.previewValues(noNumbers)
+                    separator.setVis(left = false, right = true)
+                }
+
+                CardActorState.NO -> {
+                    gState["religion"] = gState["religion"]!! + noNumbers[0]
+                    gState["antiquity"] = gState["antiquity"]!! + noNumbers[1]
+                    gState["economy"] = gState["economy"]!! + noNumbers[2]
+                    statusBar.updateValues(gState)
+                }
+            }
+        }
+        else{
+            val rightText = endingJson[key]!!.jsonObject["yes"]?.jsonPrimitive?.content ?: "YES"
+            val leftText = endingJson[key]!!.jsonObject["no"]?.jsonPrimitive?.content ?: "NO"
+            when (s) {
+                CardActorState.YES -> {
+                    ending(key)
+                }
+
+                CardActorState.YES_TILT -> {
+                    separator.setVis(left = true, right = false)
+                }
+
+                CardActorState.NEUTRAL -> {
+                    separator.setTexts(rightText, leftText)
+                    separator.setVis(left = false, right = false)
+                }
+
+                CardActorState.NO_TILT -> {
+                    separator.setVis(left = false, right = true)
+                }
+
+                CardActorState.NO -> {
+                    ending(key)
+                }
+            }
+        }
+
+    }
+    fun ending(key:String){
+        endingDescription.setText(endingJson[key]!!.jsonObject["ending"]!!.jsonPrimitive.content)
+        window.isVisible = true
     }
 
     override fun render() {
@@ -96,5 +192,11 @@ when(s){
         val storyJson = Json.parseToJsonElement(
             Gdx.files?.internal("story.json")?.readString() ?: File("../assets/story.json").readText()
         ).jsonObject
+
+        val endingJson = Json.parseToJsonElement(
+            Gdx.files?.internal("endings.json")?.readString() ?: File("../assets/endings.json").readText()
+        ).jsonObject
+        val endingKeys = listOf("religion", "lowReligion", "lowEconomy", "lowAntiquity", "mundane")
+
     }
 }

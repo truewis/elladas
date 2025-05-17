@@ -1,5 +1,6 @@
 package com.truewis.elladas
 
+import IndicatorLabel
 import com.badlogic.gdx.scenes.scene2d.ui.Table
 import ktx.scene2d.KTable
 import ktx.scene2d.image
@@ -8,8 +9,8 @@ import ktx.scene2d.scene2d
 import ktx.scene2d.table
 
 class Separator: Table(), KTable {
-    private val leftTxt = scene2d.label("LEFT")
-    private val rightTxt = scene2d.label("RIGHT")
+    private val leftTxt = IndicatorLabel(false)
+    private val rightTxt = IndicatorLabel(true)
     init {
         top()
         setFillParent(true)
@@ -37,6 +38,13 @@ class Separator: Table(), KTable {
 
 
         }
-        debug()
+    }
+    fun setTexts(left:String, right:String){
+        leftTxt.label.setText(left)
+        rightTxt.label.setText(right)
+    }
+    fun setVis(left:Boolean, right:Boolean){
+            leftTxt.isVisible = left
+            rightTxt.isVisible = right
     }
 }

@@ -4,7 +4,7 @@
     "yes": "...",
     "no": "...",
     "yesDelta": {
-      "religion": 5
+      "religion": 20
     },
     "noDelta": {
       "antiquity": -5,
@@ -17,7 +17,7 @@
     "yes": "...",
     "no": "...",
     "yesDelta": {
-      "religion": 5
+      "religion": 20
     },
     "noDelta": {
       "antiquity": -5,
@@ -30,11 +30,73 @@
     "yes": "...",
     "no": "...",
     "yesDelta": {
-      "religion": 5
+      "religion": 20
     },
     "noDelta": {
       "antiquity": -5,
       "economy": 5
+    }
+
+  },
+  "key4": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+      "religion": 20
+    },
+    "noDelta": {
+      "antiquity": -5,
+      "economy": 5
+    }
+
+  },
+  "key5": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+      "religion": 20
+    },
+    "noDelta": {
+      "antiquity": -5,
+      "economy": 5
+    }
+
+  },
+  "key6": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+      "religion": 20
+    },
+    "noDelta": {
+      "antiquity": -5,
+      "economy": 5
+    }
+
+  },
+  "key7": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+      "religion": 20
+    },
+    "noDelta": {
+      "antiquity": -5,
+      "economy": 5
+    }
+
+  },
+  "tutorial": {
+    "question":"...",
+    "yes": "...",
+    "no": "...",
+    "yesDelta": {
+    },
+    "noDelta": {
     }
 
   }
