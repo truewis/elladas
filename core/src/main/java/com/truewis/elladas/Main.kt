@@ -28,12 +28,13 @@ class Main : ApplicationAdapter() {
     private lateinit var separator: Separator
     private lateinit var window:Window
     private lateinit var endingDescription:Label
-    val gState = hashMapOf("religion" to 50, "antiquity" to 50, "economy" to 50, "time" to 0)
+    val gState = hashMapOf("religion" to 50, "antiquity" to 50, "economy" to 50, "liberalism" to 50, "time" to 0)
 
     fun startAgain(){
         gState["religion"] = 50
         gState["antiquity"] = 50
         gState["economy"] = 50
+        gState["liberalism"] = 50
         gState["time"] = 0
         exhaustedKeys.clear()
         val card = CardActor(stage, skin, "tutorial", arrayListOf(this::func), gState)
@@ -97,12 +98,14 @@ class Main : ApplicationAdapter() {
             val yesNumbers = listOf(
                 storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?: 0,
                 storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?: 0,
-                storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?: 0
+                storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?: 0,
+                storyJson[key]!!.jsonObject["yesDelta"]!!.jsonObject["liberalism"]?.jsonPrimitive?.int ?: 0
             )
             val noNumbers = listOf(
                 storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["religion"]?.jsonPrimitive?.int ?: 0,
                 storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["antiquity"]?.jsonPrimitive?.int ?: 0,
-                storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?: 0
+                storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["economy"]?.jsonPrimitive?.int ?: 0,
+                storyJson[key]!!.jsonObject["noDelta"]!!.jsonObject["liberalism"]?.jsonPrimitive?.int ?: 0
             )
 
             val rightText = storyJson[key]!!.jsonObject["yes"]?.jsonPrimitive?.content ?: "YES"
@@ -112,6 +115,7 @@ class Main : ApplicationAdapter() {
                     gState["religion"] = gState["religion"]!! + yesNumbers[0]
                     gState["antiquity"] = gState["antiquity"]!! + yesNumbers[1]
                     gState["economy"] = gState["economy"]!! + yesNumbers[2]
+                    gState["liberalism"] = gState["liberalism"]!! + yesNumbers[3]
                     statusBar.updateValues(gState)
                 }
 
@@ -121,7 +125,7 @@ class Main : ApplicationAdapter() {
                 }
 
                 CardActorState.NEUTRAL -> {
-                    statusBar.previewValues(listOf(0, 0, 0))
+                    statusBar.previewValues(listOf(0, 0, 0,0))
                     separator.setTexts(rightText, leftText)
                     separator.setVis(left = false, right = false)
                 }
@@ -135,13 +139,14 @@ class Main : ApplicationAdapter() {
                     gState["religion"] = gState["religion"]!! + noNumbers[0]
                     gState["antiquity"] = gState["antiquity"]!! + noNumbers[1]
                     gState["economy"] = gState["economy"]!! + noNumbers[2]
+                    gState["liberalism"] = gState["liberalism"]!! + noNumbers[3]
                     statusBar.updateValues(gState)
                 }
             }
         }
         else{
-            val rightText = endingJson[key]!!.jsonObject["yes"]?.jsonPrimitive?.content ?: "YES"
-            val leftText = endingJson[key]!!.jsonObject["no"]?.jsonPrimitive?.content ?: "NO"
+            val rightText = endingJson[key]!!.jsonObject["answer"]?.jsonPrimitive?.content ?: "..."
+            val leftText = endingJson[key]!!.jsonObject["answer"]?.jsonPrimitive?.content ?: "..."
             when (s) {
                 CardActorState.YES -> {
                     ending(key)
@@ -152,6 +157,7 @@ class Main : ApplicationAdapter() {
                 }
 
                 CardActorState.NEUTRAL -> {
+                    statusBar.previewValues(listOf(0, 0, 0,0))
                     separator.setTexts(rightText, leftText)
                     separator.setVis(left = false, right = false)
                 }

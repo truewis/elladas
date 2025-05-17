@@ -12,6 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable
 import com.badlogic.gdx.utils.Align
 import com.truewis.elladas.Main
 import com.truewis.elladas.Main.Companion.exhaustedKeys
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import ktx.scene2d.image
 import ktx.scene2d.label
 import ktx.scene2d.scene2d
@@ -38,7 +40,12 @@ class CardActor(
 
     val stack = scene2d.stack{
         image(drawableName = "button-normal")
-        label(key){
+        var desc = ""
+        if(key !in Main.endingKeys)
+            desc = Main.storyJson[key]!!.jsonObject["question"]!!.jsonPrimitive.content
+        else
+            desc = Main.endingJson[key]!!.jsonObject["question"]!!.jsonPrimitive.content
+        label(desc){
             wrap = true
             setAlignment(Align.center)
         }
@@ -115,6 +122,7 @@ class CardActor(
         if(gState["religion"]!!<=0) return "lowReligion"
         if(gState["economy"]!!<=0) return "lowEconomy"
         if(gState["antiquity"]!!<=0) return "lowAntiquity"
+        if(gState["liberalism"]!!<=0) return "lowLiberalism"
         if(gState["time"]!!>=20) return "mundane"
         return null
     }

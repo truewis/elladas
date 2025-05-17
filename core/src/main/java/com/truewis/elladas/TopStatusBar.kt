@@ -20,7 +20,7 @@ class TopStatusBar(skin: Skin) : Table() {
         val downArrow: Image
     )
 
-    private val statusNames = listOf("Religion", "Antiquity", "Economy")
+    private val statusNames = listOf("Religion", "Antiquity", "Economy", "Liberalism")
     private val statusUIs = mutableListOf<StatusUI>()
     private val arrowSize: Float = 24f
     init {
@@ -67,8 +67,8 @@ class TopStatusBar(skin: Skin) : Table() {
         add(container).expand().top()
     }
     fun updateValues(values: HashMap<String, Int>) {
-        val keys = listOf("religion","antiquity", "economy")
-        for (i in 0 until 3) {
+        val keys = listOf("religion","antiquity", "economy", "liberalism")
+        for (i in 0 until 4) {
             val status = statusUIs[i]
             val newVal = values[keys[i]]
             status.progressBar.value = newVal!!.toFloat()
@@ -76,7 +76,7 @@ class TopStatusBar(skin: Skin) : Table() {
     }
 
     fun previewValues(values: List<Int>) {
-        for (i in 0 until 3) {
+        for (i in 0 until 4) {
             val status = statusUIs[i]
             val newVal = values[i]
 

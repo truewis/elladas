@@ -14,7 +14,7 @@
     "Mr. Prime Minister, the Patriarch of Constantinople has called for a national fast and prayer ahead of tomorrow's emergency vote. Clergy are openly calling for a new form of government.",
 
     "answer":
-    "My God...",
+    "Mother of God!",
 
     "ending":
     "It was Sunday morning, and bells tolled across Greece, not just from church towers, but from loudspeakers placed in town squares and ministry courtyards. The Prime Minister had resigned hours earlier, handing authority to a transitional council led jointly by senior clergy and a group of sympathetic MPs. Parliament, now emptied of secular parties, had already drafted amendments redefining the Hellenic Republic as the Orthodox State of Greece. Some celebrated in the streets, kissing icons and chanting hymns. Others watched in stunned silence, unsure whether to mourn or pray."
@@ -30,10 +30,17 @@
     "The Prime Minister had formally stepped down the day before, choosing not to seek another term after a full tenure. In his farewell address, he thanked the Greek people and emphasized the need for continuity and calm. There were no mass demonstrations, no crisis, just the soft murmur of politics moving forward. As Athens settled into a warm spring day, a sense of cautious optimism lingered in the air. Change was coming, but for once, it wasn't arriving in chaos."
   },
 
-  "lowAncient":  {
+  "lowLiberalism":  {
     "question":"Dear Prime Minister, Syntagma Square is full of angry people! This protest is unlike the past ones.",
     "answer": "Ha! We'll see.",
-    "ending": "The prime minister, who once plotted to completely dismantle the national identity of Hellas, is no more. At government ministries, staffers whispered and moved briskly. Phones rang off the hook. Foreign embassies issued measured statements of concern and support for democratic stability. Markets wavered. European leaders scheduled emergency meetings. The president, now the interim head of state, called for unity. But for everyday Greeks, it was a strange mix of relief, unease, and grim satisfaction."
+    "ending": "The prime minister, who blatantly ignored human rights and democratic institutions, is no more. At government ministries, staffers whispered and moved briskly. Phones rang off the hook. Foreign embassies issued measured statements of concern and support for democratic stability. Markets wavered. European leaders scheduled emergency meetings. The president, now the interim head of state, called for unity. But for everyday Greeks, it was a strange mix of relief, unease, and grim satisfaction."
+
+  },
+
+  "lowAntiquity":  {
+    "question":"Dear Prime Minister, everyone now thinks you are destroying the history of this country. Scholars all over the world, including the Archaeological Society of Athens, have filed a petition against your policies.",
+    "answer": "But this is what the people wanted.",
+    "ending": "Obsession to the past has set back this country for too long. Now, amphitheaters are giving way to shopping complexes, and ancient sanctuaries are paved over for high-speed transit hubs. Resistances were short-lived, and even them were eventually given what they really wanted: prosperity. For a generation raised without ruins, their identity will no longer reside in the ancient, obsolete past but in the glorious future that will unfold in front of their eyes."
 
   },
   "lowEconomy":  {
