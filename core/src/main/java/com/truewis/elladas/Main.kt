@@ -45,9 +45,9 @@ class Main : ApplicationAdapter() {
     }
     override fun create() {
         stage = Stage(FitViewport(640f, 480f))
-        skin = Skin(Gdx.files.internal("ui/uiskin.json"))
+        skin = Skin(Gdx.files.internal("ui2.json"))
 
-        window = Window("Game Over", skin, "border")
+        window = Window("Game Over", skin, "default")
         endingDescription= Label("", skin)
         endingDescription.wrap = true
 

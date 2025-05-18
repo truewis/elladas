@@ -40,13 +40,13 @@ class TopStatusBar(skin: Skin) : Table() {
                 height = 100f
             }
 
-            val upArrow = scene2d.image("button-normal").apply {
+            val upArrow = scene2d.image("spinner-up").apply {
                 isVisible = false
                 color = Color(0f, 1f, 0f, 1f)
                 setSize(arrowSize, arrowSize)
             }
 
-            val downArrow = scene2d.image("button-normal").apply {
+            val downArrow = scene2d.image("spinner-down").apply {
                 isVisible = false
                 color = Color(1f, 0f, 0f, 1f)
                 setSize(arrowSize, arrowSize)

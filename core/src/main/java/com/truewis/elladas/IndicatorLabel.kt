@@ -15,7 +15,7 @@ import kotlin.math.min
 class IndicatorLabel(faceRight: Boolean) : Table(), KTable {
     lateinit var label:Label
     init {
-        image("button-normal") {  }
+        image("tree-plus") {  }
         label = label(""){
 
         }

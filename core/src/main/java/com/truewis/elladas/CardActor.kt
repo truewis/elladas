@@ -39,7 +39,7 @@ class CardActor(
     private val threshold = 200f
 
     val stack = scene2d.stack{
-        image(drawableName = "button-normal")
+        image(drawableName = "button")
         var desc = ""
         if(key !in Main.endingKeys)
             desc = Main.storyJson[key]!!.jsonObject["question"]!!.jsonPrimitive.content

@@ -611,6 +611,76 @@
       "greekLeadership": -6
     }
   },
+  "churchConstruction": {
+    "image": "churchArchaeologyConflict.jpg",
+    "question": "Should the Orthodox Church be allowed to construct or expand churches on archaeologically significant land?",
+    "yes": "Permit construction with minimal archaeological oversight",
+    "no": "Block construction to preserve archaeological integrity",
+    "yesDelta": {
+      "religion": 8,
+      "antiquity": -6
+    },
+    "noDelta": {
+      "antiquity": 10,
+      "religion": -4
+    }
+  },
+  "vassilikoEuboea": {
+    "image": "vassilikoSite.jpg",
+    "question": "Should a large church be allowed on the archaeological site of Vassiliko in Euboea?",
+    "yes": "Support church construction for local tradition",
+    "no": "Protect the ancient settlement by denying the permit",
+    "yesDelta": {
+      "localFaith": 7,
+      "antiquity": -5
+    },
+    "noDelta": {
+      "antiquity": 9,
+      "localFaith": -3
+    }
+  },
+  "mountAthosAccess": {
+    "image": "mountAthos.jpg",
+    "question": "Should archaeologists be granted full access to Mount Athos for heritage research?",
+    "yes": "Permit full access for academic documentation",
+    "no": "Restrict access to protect monastic privacy",
+    "yesDelta": {
+      "research": 10,
+      "religiousAutonomy": -6
+    },
+    "noDelta": {
+      "religiousAutonomy": 9,
+      "research": -5
+    }
+  },
+  "narrativeConflict": {
+    "image": "byzantineTransition.jpg",
+    "question": "Should public education emphasize archaeological over ecclesiastical narratives of Christianization?",
+    "yes": "Prioritize evidence-based archaeological narratives",
+    "no": "Support traditional Church accounts in national storytelling",
+    "yesDelta": {
+      "education": 9,
+      "churchInfluence": -5
+    },
+    "noDelta": {
+      "churchInfluence": 8,
+      "education": -4
+    }
+  },
+  "churchExcavationAccess": {
+    "image": "churchExcavation.jpg",
+    "question": "Should archaeologists be allowed to excavate beneath active churches if ancient remains are suspected?",
+    "yes": "Permit excavation under strict guidelines",
+    "no": "Deny excavation to avoid disrupting sacred spaces",
+    "yesDelta": {
+      "discovery": 9,
+      "religiousSentiment": -5
+    },
+    "noDelta": {
+      "religiousSentiment": 8,
+      "discovery": -4
+    }
+  },
 
 
 
