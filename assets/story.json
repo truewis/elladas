@@ -185,19 +185,6 @@
       "antiquity": -10
     }
   },
-  "chalkis": {
-    "image": "chalkisApolloTemple.jpg",
-    "question": "Chalkis has had no major heritage conflicts, though tourism and neighborhood preservation are at odds. What would the government's opinion be?",
-    "yes": "Preserve historic neighborhoods over tourism",
-    "no": "Encourage tourism even if it changes the old city",
-    "yesDelta": {
-      "antiquity": 5
-    },
-    "noDelta": {
-      "economy": 5,
-      "liberalism": 5
-    }
-  },
   "eretria": {
     "image": "eretriaRuins.jpg",
     "question": "The coastal resort near Eretria wants to expand, which archaeologists say could harm nearby antiquities. What would the government's opinion be?",
@@ -496,6 +483,132 @@
     "noDelta": {
       "antiquity": 10,
       "economy": -5
+    }
+  },
+  "churchStateRelations": {
+    "image": "churchState.jpg",
+    "question": "Should Greece fully separate church and state by ending public funding and religious oaths?",
+    "yes": "Revise the Constitution and remove church privileges",
+    "no": "Preserve the Church's traditional role in public life",
+    "yesDelta": {
+      "secularism": 10,
+      "tradition": -6
+    },
+    "noDelta": {
+      "tradition": 8,
+      "secularism": -5
+    }
+  },
+  "propertyTransparency": {
+    "image": "churchLand.jpg",
+    "question": "Should the Church of Greece be required to publicly disclose all assets and pay regular taxes?",
+    "yes": "Enforce full financial transparency and taxation",
+    "no": "Maintain current opaque property arrangements",
+    "yesDelta": {
+      "transparency": 10,
+      "churchInfluence": -6
+    },
+    "noDelta": {
+      "churchInfluence": 7,
+      "publicTrust": -7
+    }
+  },
+  "macedoniaDispute": {
+    "image": "macedoniaProtests.jpg",
+    "question": "Should the Church stop opposing the Prespa Agreement over the name 'North Macedonia'?",
+    "yes": "Support diplomatic resolutions over nationalist concerns",
+    "no": "Continue opposing the use of 'Macedonia' by other nations",
+    "yesDelta": {
+      "diplomacy": 8,
+      "nationalPride": -4
+    },
+    "noDelta": {
+      "nationalPride": 9,
+      "regionalStability": -6
+    }
+  },
+  "lgbtqRights": {
+    "image": "prideAthens.jpg",
+    "question": "Should the Church embrace legal rights for LGBTQ+ individuals, including civil unions and marriage?",
+    "yes": "Promote inclusivity and equal rights",
+    "no": "Maintain traditional teachings and oppose legal changes",
+    "yesDelta": {
+      "equality": 10,
+      "conservatism": -6
+    },
+    "noDelta": {
+      "conservatism": 8,
+      "socialHarmony": -7
+    }
+  },
+  "covidResponse": {
+    "image": "covidChurch.jpg",
+    "question": "Should the Church have complied fully with public health restrictions during the pandemic?",
+    "yes": "Prioritize public health over ritual practices",
+    "no": "Maintain sacraments and gatherings despite restrictions",
+    "yesDelta": {
+      "publicHealth": 10,
+      "religiousFreedom": -4
+    },
+    "noDelta": {
+      "religiousFreedom": 7,
+      "publicHealth": -8
+    }
+  },
+  "religiousEducation": {
+    "image": "religiousClassroom.jpg",
+    "question": "Should Greece remove confessional religious education from public schools?",
+    "yes": "Replace with neutral, comparative religion curriculum",
+    "no": "Keep Orthodox Christianity central to school teachings",
+    "yesDelta": {
+      "pluralism": 9,
+      "orthodoxIdentity": -5
+    },
+    "noDelta": {
+      "orthodoxIdentity": 8,
+      "pluralism": -6
+    }
+  },
+  "migrantPolicy": {
+    "image": "refugeeChurch.jpg",
+    "question": "Should the Church take a more welcoming stance toward migrants and refugees?",
+    "yes": "Promote compassion and integration",
+    "no": "Defend national and religious identity",
+    "yesDelta": {
+      "humanRights": 10,
+      "nationalism": -5
+    },
+    "noDelta": {
+      "nationalism": 9,
+      "internationalReputation": -6
+    }
+  },
+  "clericalScandals": {
+    "image": "churchScandal.jpg",
+    "question": "Should the Church implement stronger oversight to prevent misconduct and corruption?",
+    "yes": "Establish strict internal accountability measures",
+    "no": "Handle misconduct internally and quietly",
+    "yesDelta": {
+      "accountability": 10,
+      "clericalAutonomy": -6
+    },
+    "noDelta": {
+      "clericalAutonomy": 7,
+      "publicTrust": -7
+    }
+  },
+  "orthodoxSchism": {
+    "image": "orthodoxUnity.jpg",
+    "question": "Should the Church of Greece continue supporting Constantinople in the Orthodox schism over Ukraine?",
+    "yes": "Support the Ecumenical Patriarch?s decisions on autocephaly",
+    "no": "Side with Moscow to maintain unity with Russian Orthodoxy",
+    "yesDelta": {
+      "patriarchalLoyalty": 9,
+      "panOrthodoxUnity": -5
+    },
+    "noDelta": {
+      "panOrthodoxUnity": 8,
+      "greekLeadership": -6
     }
   },
 
