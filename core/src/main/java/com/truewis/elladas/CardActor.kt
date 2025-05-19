@@ -1,5 +1,6 @@
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.InputListener
 import com.badlogic.gdx.scenes.scene2d.Stage
@@ -9,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable
 import com.badlogic.gdx.utils.Align
 import com.truewis.elladas.Main
 import com.truewis.elladas.Main.Companion.exhaustedKeys
@@ -18,6 +20,7 @@ import ktx.scene2d.image
 import ktx.scene2d.label
 import ktx.scene2d.scene2d
 import ktx.scene2d.stack
+import ktx.scene2d.table
 import kotlin.math.abs
 
 class CardActor(
@@ -38,6 +41,8 @@ class CardActor(
     private var startY = 0f
     private val threshold = 200f
 
+    val img = scene2d.image {  }
+
     val stack = scene2d.stack{
         image(drawableName = "button")
         var desc = ""
@@ -45,24 +50,45 @@ class CardActor(
             desc = Main.storyJson[key]!!.jsonObject["question"]!!.jsonPrimitive.content
         else
             desc = Main.endingJson[key]!!.jsonObject["question"]!!.jsonPrimitive.content
-        label(desc){
-            wrap = true
-            setAlignment(Align.center)
+
+
+        table {
+            add(img).fill()
+            row()
+            label(desc) {
+                it.fill()
+                wrap = true
+                setAlignment(Align.center)
+            }
         }
     }
 
     init {
         Main.exhaustedKeys.add(key)
         onStateChange.forEach { it(CardActorState.NEUTRAL, key) }
-        width = 200f
-        height = 350f
-        setOrigin(Align.center)
+        width = 400f
+        height = 700f
 
+
+        var imgName = ""
+        if(key !in Main.endingKeys)
+            imgName = Main.storyJson[key]!!.jsonObject["image"]!!.jsonPrimitive.content
+        else
+            imgName = Main.endingJson[key]!!.jsonObject["image"]!!.jsonPrimitive.content
+        Main.instance.assetManager.finishLoadingAsset<Texture>(imgName)
+        img.drawable = TextureRegionDrawable(
+            Main.instance.assetManager.get(
+                imgName,
+                Texture::class.java
+            )!!
+        )
+
+        setOrigin(Align.center)
+        add(stack).fill()
         setPosition(
             (Gdx.graphics.width - width) / 2f,
             (Gdx.graphics.height - height) / 2f
         )
-        add(stack).grow()
 
         addListener(object : InputListener() {
             override fun touchDown(event: InputEvent?, x: Float, y: Float, pointer: Int, button: Int): Boolean {

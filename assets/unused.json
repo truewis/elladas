@@ -1,0 +1,16 @@
+{
+"thebes": {
+"image": "thebesCitadel.jpg",
+"question": "Should Thebes allow new housing developments on unexcavated areas to ease unemployment?",
+"yes": "Permit construction after rescue excavations",
+"no": "Block development entirely to preserve the archaeological record",
+"yesDelta": {
+"economy": 8,
+"antiquity": -5
+},
+"noDelta": {
+"antiquity": 10,
+"economy": -5
+}
+}
+}

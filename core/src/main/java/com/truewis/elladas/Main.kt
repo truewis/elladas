@@ -5,6 +5,10 @@ import CardActorState
 import TopStatusBar
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.assets.AssetManager
+import com.badlogic.gdx.assets.loaders.TextureLoader
+import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver
+import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.Stage
@@ -29,7 +33,7 @@ class Main : ApplicationAdapter() {
     private lateinit var window:Window
     private lateinit var endingDescription:Label
     val gState = hashMapOf("religion" to 50, "antiquity" to 50, "economy" to 50, "liberalism" to 50, "time" to 0)
-
+    val assetManager = AssetManager()
     fun startAgain(){
         gState["religion"] = 50
         gState["antiquity"] = 50
@@ -44,7 +48,38 @@ class Main : ApplicationAdapter() {
         window.isVisible = false
     }
     override fun create() {
-        stage = Stage(FitViewport(640f, 480f))
+        instance = this
+        stage = Stage(FitViewport(1280f, 960f))
+        val musicManager = MusicManager()
+
+        // Load music at app start
+        musicManager.loadMusic("lowAncient", "music/lowAncient.mp3")
+        musicManager.loadMusic("lowEconomy", "music/lowEconomy.mp3")
+        musicManager.loadMusic("lowLiberalism", "music/lowLiberalism.mp3")
+        musicManager.loadMusic("main", "music/main.mp3")
+        musicManager.loadMusic("religion", "music/religion.mp3")
+
+        // Start playing "intro" music
+        musicManager.playMusic("main")
+
+        val resolver = InternalFileHandleResolver()
+        assetManager.setLoader(
+            Texture::class.java, TextureLoader(resolver)
+        )
+        assetManager.load("image/mountAthos.jpg", Texture::class.java)
+        assetManager.finishLoading()
+
+        storyJson.forEach {
+            assetManager.load(it.value.jsonObject["image"]!!.jsonPrimitive.content, Texture::class.java)
+        }
+
+        endingJson.forEach {
+            assetManager.load(it.value.jsonObject["image"]!!.jsonPrimitive.content, Texture::class.java)
+        }
+//        println("Explicit asset imports successful.")
+//        assetManager.finishLoading()
+
+
         skin = Skin(Gdx.files.internal("ui2.json"))
 
         window = Window("Game Over", skin, "default")
@@ -203,6 +238,8 @@ class Main : ApplicationAdapter() {
             Gdx.files?.internal("endings.json")?.readString() ?: File("../assets/endings.json").readText()
         ).jsonObject
         val endingKeys = listOf("religion", "lowReligion", "lowEconomy", "lowAntiquity", "mundane")
+
+        lateinit var instance: Main
 
     }
 }
