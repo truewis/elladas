@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.ScreenUtils
 import com.badlogic.gdx.utils.viewport.FitViewport
 import ktx.scene2d.Scene2DSkin
 import java.io.File
+import com.rafaskoberg.gdx.typinglabel.*
 
 /** [com.badlogic.gdx.ApplicationListener] implementation shared by all platforms.  */
 class Main : ApplicationAdapter() {
@@ -31,7 +32,7 @@ class Main : ApplicationAdapter() {
     private lateinit var statusBar:TopStatusBar
     private lateinit var separator: Separator
     private lateinit var window:Window
-    private lateinit var endingDescription:Label
+    private lateinit var endingDescription:TypingLabel
     val gState = hashMapOf("religion" to 50, "antiquity" to 50, "economy" to 50, "liberalism" to 50, "time" to 0)
     val assetManager = AssetManager()
     fun startAgain(){
@@ -83,7 +84,7 @@ class Main : ApplicationAdapter() {
         skin = Skin(Gdx.files.internal("ui2.json"))
 
         window = Window("Game Over", skin, "default")
-        endingDescription= Label("", skin)
+        endingDescription= TypingLabel("", skin)
         endingDescription.wrap = true
 
         window.defaults().pad(4f)

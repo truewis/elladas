@@ -3,12 +3,12 @@
     "image": "image/olympianZeusAthens.jpg",
     "question":"The temple of Olympian Zeus in Athens became a victim of a political discourse. Protesters damaged marble paving and display cases during a rally. What would the government's opinion be?",
     "yes": "Condemn the extremists",
-    "no": "Associate the incident with the socialist party",
+    "no": "Associate the incident with the opposition party",
     "yesDelta": {
     },
     "noDelta": {
-      "antiquity": 10,
-      "economy": 10
+      "liberalism": -15,
+      "antiquity": 10
     }
 
   },
@@ -19,7 +19,7 @@
     "no": "History does not negotiate",
     "yesDelta": {
       "antiquity": -10,
-      "economy": 10
+      "economy": 15
     },
     "noDelta": {
       "antiquity": 10
@@ -28,15 +28,15 @@
   },
   "odeionOfHerodesAtticus": {
     "image": "image/odeionOfHerodesAtticusAthens.jpg",
-    "question":"The Odeion of Herodes Atticus stands right below the Acropolis of Athens. Its preservation has not been the focus of major public controversy, but debates have occurred over its use: some archaeologists warned against \"overcommercializing\" ancient theaters by staging modern performances. Indeed, it seems the wear and tear of people is gradually taking its toll on the Odeion. ",
+    "question":"The Odeion of Herodes Atticus stands right below the Acropolis of Athens. Its preservation has not been the focus of major public controversy, but debates have occurred over its use: some archaeologists warned against \"overcommercializing\" ancient theaters by staging modern performances. Indeed, it seems the wear and tear of people is gradually taking its toll on the monument. ",
     "yes": "Reduce the number of performances",
     "no": "No monument is permanent, after all",
     "yesDelta": {
-      "economy": -10,
+      "economy": -15,
       "antiquity": 10
     },
     "noDelta": {
-      "antiquity": -10,
+      "antiquity": -15,
       "economy": 10
     }
 
@@ -81,6 +81,19 @@
       "antiquity": -10
     }
   },
+  "pellaTombs": {
+    "image": "image/pellaTomb.jpg",
+    "question": "A?",
+    "yes": "Preserve artifacts in their place of origin",
+    "no": "Centralize artifacts for national display",
+    "yesDelta": {
+      "antiquity": 10
+    },
+    "noDelta": {
+      "economy": 10,
+      "antiquity": -10
+    }
+  },
   "dion": {
     "image": "image/dionSanctuary.jpg",
     "question": "The abandoned cement factory at Dion was cleared for archaeological preservation after pressure from UNESCO. What would the government's opinion be?",
@@ -109,8 +122,8 @@
     }
   },
   "corinth": {
-    "image": "image/ancientCorinthSanctuary.jpg",
-    "question": "The ring road and museum construction in Corinth have disturbed unexcavated remains. What would the government's opinion be?",
+    "image": "image/corinthTemple.jpg",
+    "question": "Ancient Corinth was one of the most important city-states in ancient Greece, known for its wealth and strategic location connecting the gulf of Corinth to the Aegean sea. Recently, the ring road and museum construction in Corinth have disturbed unexcavated remains. What would the government's opinion be?",
     "yes": "Uphold archaeological protection",
     "no": "Support regional economic growth",
     "yesDelta": {
@@ -119,17 +132,6 @@
     "noDelta": {
       "economy": 15,
       "antiquity": -10
-    }
-  },
-  "eleutherai": {
-    "image": "image/eleutheraiTemple.jpg",
-    "question": "The ruins at Eleutherai have never drawn national attention or political controversy. In fact, it has been little too quiet. Now the local politicians want to promote the monument, and therefore, tourism. What would the government's opinion be?",
-    "yes": "Continue quiet stewardship",
-    "no": "Propose reallocation to private tourism",
-    "yesDelta": {},
-    "noDelta": {
-      "economy": 5,
-      "antiquity": -5
     }
   },
   "ancientAgoraAthens": {

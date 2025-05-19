@@ -12,5 +12,17 @@
 "antiquity": 10,
 "economy": -5
 }
-}
+},
+
+  "eleutherai": {
+    "image": "image/eleutheraiTemple.jpg",
+    "question": "The ruins at Eleutherai have never drawn national attention or political controversy. In fact, it has been little too quiet. Now the local politicians want to promote the monument, and therefore, tourism. What would the government's opinion be?",
+    "yes": "Continue quiet stewardship",
+    "no": "Propose reallocation to private tourism",
+    "yesDelta": {},
+    "noDelta": {
+      "economy": 5,
+      "antiquity": -5
+    }
+  }
 }

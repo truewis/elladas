@@ -56,7 +56,8 @@ class CardActor(
             add(img).fill()
             row()
             label(desc) {
-                it.fill()
+                it.grow()
+                it.minHeight(300f)
                 wrap = true
                 setAlignment(Align.center)
             }
@@ -98,7 +99,7 @@ class CardActor(
             }
 
             override fun touchDragged(event: InputEvent?, x: Float, y: Float, pointer: Int) {
-                this@CardActor.moveBy(Gdx.input.deltaX.toFloat(), 0f)
+                this@CardActor.moveBy(Gdx.input.deltaX.toFloat()*2, 0f)
                 state =  if (this@CardActor.x>startX) CardActorState.NO_TILT else CardActorState.YES_TILT
             }
 
@@ -139,6 +140,7 @@ class CardActor(
                 val newCard =
                     CardActor(stage, skin, (Main.storyJson.keys - exhaustedKeys).random(), onStateChange, gState)
                 stage.addActor(newCard)
+                Main.instance.gState["time"] = Main.instance.gState["time"]!!+1
             }
         }
     }

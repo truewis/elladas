@@ -22,6 +22,7 @@ class TopStatusBar(skin: Skin) : Table() {
 
     private val statusNames = listOf("Religion", "Antiquity", "Economy", "Liberalism")
     private val statusUIs = mutableListOf<StatusUI>()
+    private val yearText = Label("", skin)
     private val arrowSize: Float = 24f
     init {
         top().left()
@@ -63,7 +64,8 @@ class TopStatusBar(skin: Skin) : Table() {
             container.add(barColumn).pad(20f)
             statusUIs.add(StatusUI(label, bar, upArrow, downArrow))
         }
-
+        add(yearText).growX().right()
+        row()
         add(container).expand().top()
     }
     fun updateValues(values: HashMap<String, Int>) {
@@ -73,6 +75,7 @@ class TopStatusBar(skin: Skin) : Table() {
             val newVal = values[keys[i]]
             status.progressBar.value = newVal!!.toFloat()
         }
+        yearText.setText((2025+values["time"]!!).toString()+" CE")
     }
 
     fun previewValues(values: List<Int>) {
