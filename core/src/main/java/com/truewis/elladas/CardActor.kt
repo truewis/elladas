@@ -118,6 +118,7 @@ class CardActor(
     private fun swipeOffScreen(direction: Int) {
         state = if (direction>0) CardActorState.NO else CardActorState.YES
         val offX = if (direction > 0) Gdx.graphics.width.toFloat() else -width * 2
+        Main.flipSound.play()
         addAction(
             Actions.sequence(
                 Actions.moveTo(offX, startY, 0.3f),

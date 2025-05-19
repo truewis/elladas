@@ -150,7 +150,7 @@
   },
   "theatreDionysos": {
     "image": "image/theatreDionysos.jpg",
-    "question": "The Theatre of Dionysos restoration project caused debate over authenticity versus tourist accessibility. What would the government's opinion be?",
+    "question": "The Theatre of Dionysos restoration project at Athens caused debate over authenticity versus tourist accessibility. What would the government's opinion be?",
     "yes": "Prioritize authenticity with minimal intervention",
     "no": "Favor partial reconstruction for tourism and safety",
     "yesDelta": {

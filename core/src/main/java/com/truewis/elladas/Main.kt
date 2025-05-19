@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.assets.loaders.TextureLoader
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver
+import com.badlogic.gdx.audio.Sound
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.scenes.scene2d.Actor
@@ -52,6 +53,7 @@ class Main : ApplicationAdapter() {
         instance = this
         stage = Stage(FitViewport(1280f, 960f))
         val musicManager = MusicManager()
+        flipSound = Gdx.audio.newSound(Gdx.files.internal("music/flip.wav"))
 
         // Load music at app start
         musicManager.loadMusic("lowAncient", "music/lowAncient.mp3")
@@ -239,6 +241,7 @@ class Main : ApplicationAdapter() {
             Gdx.files?.internal("endings.json")?.readString() ?: File("../assets/endings.json").readText()
         ).jsonObject
         val endingKeys = listOf("religion", "lowReligion", "lowEconomy", "lowAntiquity", "mundane")
+        lateinit var flipSound: Sound
 
         lateinit var instance: Main
 
