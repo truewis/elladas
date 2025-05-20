@@ -460,16 +460,16 @@
   },
   "churchStateRelations": {
     "image": "image/mountAthos.jpg",
-    "question": "Should Greece fully separate church and state by ending public funding and religious oaths?",
-    "yes": "Revise the Constitution and remove church privileges",
+    "question": "As everyone knows, our government maintains strong ties with the Orthodox church, despite global trend of secularism. Should Greece fully separate church and state by ending public funding and religious oaths?",
+    "yes": "Revise the laws and remove church privileges",
     "no": "Preserve the Church's traditional role in public life",
     "yesDelta": {
-      "secularism": 10,
-      "tradition": -6
+      "liberalism": 15,
+      "religion": -20
     },
     "noDelta": {
-      "tradition": 8,
-      "secularism": -5
+      "religion": 10,
+      "liberalism": -15
     }
   },
   "propertyTransparency": {

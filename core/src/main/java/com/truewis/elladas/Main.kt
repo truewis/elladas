@@ -34,6 +34,7 @@ class Main : ApplicationAdapter() {
     private lateinit var separator: Separator
     private lateinit var window:Window
     private lateinit var endingDescription:TypingLabel
+    lateinit var musicManager: MusicManager
     val gState = hashMapOf("religion" to 50, "antiquity" to 50, "economy" to 50, "liberalism" to 50, "time" to 0)
     val assetManager = AssetManager()
     fun startAgain(){
@@ -43,6 +44,7 @@ class Main : ApplicationAdapter() {
         gState["liberalism"] = 50
         gState["time"] = 0
         exhaustedKeys.clear()
+        musicManager.playMusic("main")
         val card = CardActor(stage, skin, "tutorial", arrayListOf(this::func), gState)
         stage.addActor(card)
         statusBar.updateValues(gState)
@@ -52,7 +54,7 @@ class Main : ApplicationAdapter() {
     override fun create() {
         instance = this
         stage = Stage(FitViewport(1280f, 960f))
-        val musicManager = MusicManager()
+        musicManager = MusicManager()
         flipSound = Gdx.audio.newSound(Gdx.files.internal("music/flip.wav"))
 
         // Load music at app start
@@ -240,7 +242,7 @@ class Main : ApplicationAdapter() {
         val endingJson = Json.parseToJsonElement(
             Gdx.files?.internal("endings.json")?.readString() ?: File("../assets/endings.json").readText()
         ).jsonObject
-        val endingKeys = listOf("religion", "lowReligion", "lowEconomy", "lowAntiquity", "mundane")
+        val endingKeys = listOf("religion", "lowReligion", "lowEconomy", "lowAntiquity", "mundane", "lowLiberalism")
         lateinit var flipSound: Sound
 
         lateinit var instance: Main

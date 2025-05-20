@@ -133,6 +133,14 @@ class CardActor(
 
     private fun generateNewCard() {
         isEnding().also {
+            when (it){
+                "religion"->Main.instance.musicManager.playMusic("religion")
+                "lowReligion"->Main.instance.musicManager.playMusic("religion")
+                "lowEconomy"->Main.instance.musicManager.playMusic("lowEconomy")
+                "lowAntiquity"->Main.instance.musicManager.playMusic("lowAncient")
+                "lowLiberalism"->Main.instance.musicManager.playMusic("lowLiberalism")
+                "mundane"->Main.instance.musicManager.playMusic("lowLiberalism")
+            }
             if (it != null) {
                 val newCard =
                     CardActor(stage, skin, it, onStateChange, gState)

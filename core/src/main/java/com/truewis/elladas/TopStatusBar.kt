@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.Table
 import ktx.scene2d.image
 import ktx.scene2d.scene2d
+import kotlin.math.abs
 import kotlin.math.min
 
 class TopStatusBar(skin: Skin) : Table() {
@@ -87,10 +88,12 @@ class TopStatusBar(skin: Skin) : Table() {
             // Animate arrows based on change
             if (newVal > 0) {
                 status.upArrow.isVisible = true
+                status.upArrow.setColor(0f, 1f, 0f, abs(newVal) /20f)
                 status.downArrow.isVisible = false
             } else if (newVal < 0) {
                 status.upArrow.isVisible = false
                 status.downArrow.isVisible = true
+                status.downArrow.setColor(1f, 0f, 0f, abs(newVal) /20f)
             } else {
                 status.upArrow.isVisible = false
                 status.downArrow.isVisible = false
