@@ -202,7 +202,7 @@
     }
   },
   "lefkandi": {
-    "image": "image/lefkandiTombs.jpg",
+    "image": "image/lefkandiTombs.png",
     "question": "Lefkandi's villagers want more tourist infrastructure, while archaeologists prefer a low-impact museum. What would the government's opinion be?",
     "yes": "Keep museum design minimal and respectful",
     "no": "Expand infrastructure to attract visitors",
@@ -296,7 +296,7 @@
     }
   },
   "argos": {
-    "image": "image/argosRuins.jpg",
+    "image": "image/argos.jpg",
     "question": "In Argos, proposals to build on or near ancient ruins have sparked repeated disputes. Should the city ease construction restrictions?",
     "yes": "Permit controlled development to boost city growth",
     "no": "Enforce strict heritage protection rules",
@@ -420,7 +420,7 @@
     }
   },
   "olympia": {
-    "image": "image/olympiaSanctuary.jpg",
+    "image": "image/olympia.jpg",
     "question": "Should funding prioritize Olympia's museum expansion over flood prevention?",
     "yes": "Focus funds on showcasing artifacts in a new museum",
     "no": "Redirect funds to infrastructure to protect the site from floods",
@@ -458,21 +458,6 @@
       "economy": -5
     }
   },
-  "eleusis": {
-    "image": "image/eleusisSanctuary.jpg",
-    "question": "Should modern construction projects near Eleusis be limited despite cultural events and urban growth?",
-    "yes": "Preserve sacred landscape by restricting development",
-    "no": "Allow construction to support modern cultural life and tourism",
-    "yesDelta": {
-      "antiquity": 10,
-      "economy": -5
-    },
-    "noDelta": {
-      "economy": 10,
-      "antiquity": -5,
-      "liberalism": 5
-    }
-  },
   "churchStateRelations": {
     "image": "image/mountAthos.jpg",
     "question": "Should Greece fully separate church and state by ending public funding and religious oaths?",
@@ -502,17 +487,18 @@
     }
   },
   "macedoniaDispute": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should the Church stop opposing the Prespa Agreement over the name 'North Macedonia'?",
+    "image": "image/macedonia.jpg",
+    "question": "Quite a few people in our country, especially those in the Orthodox church, still does not like the neighboring country's name which includes 'Macedonia'. They want the government to raise the voice over the issue. What would be the government's stance?",
     "yes": "Support diplomatic resolutions over nationalist concerns",
-    "no": "Continue opposing the use of 'Macedonia' by other nations",
+    "no": "Side with the nationalists and oppose the use of 'Macedonia' by other nations",
     "yesDelta": {
-      "diplomacy": 8,
-      "nationalPride": -4
+      "liberalism": 15,
+      "antiquity": -10,
+      "religion": -10
     },
     "noDelta": {
-      "nationalPride": 9,
-      "regionalStability": -6
+      "antiquity": 10,
+      "liberalism": -15
     }
   },
   "lgbtqRights": {
@@ -529,93 +515,38 @@
       "socialHarmony": -7
     }
   },
-  "covidResponse": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should the Church have complied fully with public health restrictions during the pandemic?",
-    "yes": "Prioritize public health over ritual practices",
-    "no": "Maintain sacraments and gatherings despite restrictions",
-    "yesDelta": {
-      "publicHealth": 10,
-      "religiousFreedom": -4
-    },
-    "noDelta": {
-      "religiousFreedom": 7,
-      "publicHealth": -8
-    }
-  },
-  "religiousEducation": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should Greece remove confessional religious education from public schools?",
-    "yes": "Replace with neutral, comparative religion curriculum",
-    "no": "Keep Orthodox Christianity central to school teachings",
-    "yesDelta": {
-      "pluralism": 9,
-      "orthodoxIdentity": -5
-    },
-    "noDelta": {
-      "orthodoxIdentity": 8,
-      "pluralism": -6
-    }
-  },
   "migrantPolicy": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should the Church take a more welcoming stance toward migrants and refugees?",
+    "image": "image/refugee.jpg",
+    "question": "The number of migrants and refugees in our country is increasing rapidly in the recent years. Conservative communities, especially within the orthodox church, is not happy with this trend. What would be the government's stance toward migrants and refugees?",
     "yes": "Promote compassion and integration",
     "no": "Defend national and religious identity",
     "yesDelta": {
-      "humanRights": 10,
-      "nationalism": -5
+      "liberalism": 15,
+      "religion": -10
     },
     "noDelta": {
-      "nationalism": 9,
-      "internationalReputation": -6
-    }
-  },
-  "clericalScandals": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should the Church implement stronger oversight to prevent misconduct and corruption?",
-    "yes": "Establish strict internal accountability measures",
-    "no": "Handle misconduct internally and quietly",
-    "yesDelta": {
-      "accountability": 10,
-      "clericalAutonomy": -6
-    },
-    "noDelta": {
-      "clericalAutonomy": 7,
-      "publicTrust": -7
+      "liberalism": -20,
+      "religion": 10,
+      "antiquity": 10
     }
   },
   "orthodoxSchism": {
     "image": "image/mountAthos.jpg",
-    "question": "Should the Church of Greece continue supporting Constantinople in the Orthodox schism over Ukraine?",
-    "yes": "Support the Ecumenical Patriarch?s decisions on autocephaly",
-    "no": "Side with Moscow to maintain unity with Russian Orthodoxy",
+    "question": "Several priests of the Orthodox Church are defending a war-mongering country which also believes in the same religion. This is casting our country in a bad light to western countries. Should the government intervene?",
+    "yes": "Warn the Orthodox church regarding the scandal",
+    "no": "Respect the freedom of speech and religion",
     "yesDelta": {
-      "patriarchalLoyalty": 9,
-      "panOrthodoxUnity": -5
+      "liberalism": 10,
+      "religion": -15
     },
     "noDelta": {
-      "panOrthodoxUnity": 8,
-      "greekLeadership": -6
-    }
-  },
-  "churchConstruction": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should the Orthodox Church be allowed to construct or expand churches on archaeologically significant land?",
-    "yes": "Permit construction with minimal archaeological oversight",
-    "no": "Block construction to preserve archaeological integrity",
-    "yesDelta": {
-      "religion": 8,
-      "antiquity": -6
-    },
-    "noDelta": {
-      "antiquity": 10,
-      "religion": -4
+      "religion": 10,
+      "liberalism": -15
     }
   },
   "vassilikoEuboea": {
     "image": "image/vassilikoSite.jpg",
-    "question": "Should a large church be allowed on the archaeological site of Vassiliko in Euboea?",
+    "question": "A conflict arose when local church authorities planned to erect a large religious structure on the archaeological site of Vassiliko in Euboea. Archaeologists warned that the church would damage significant ancient ruins, including parts of a classical settlement. What would the government's opinion be?",
     "yes": "Support church construction for local tradition",
     "no": "Protect the ancient settlement by denying the permit",
     "yesDelta": {
@@ -629,52 +560,55 @@
   },
   "mountAthosAccess": {
     "image": "image/mountAthos.jpg",
-    "question": "Should archaeologists be granted full access to Mount Athos for heritage research?",
+    "question": "Mount Athos, a semi-autonomous monastic community, contains rich archaeological and Byzantine heritage. However, the region is closed to non-believers and women, which increases the difficulty of conducting conservation work or research. Should archaeologists be granted full access to Mount Athos for heritage research?",
     "yes": "Permit full access for academic documentation",
     "no": "Restrict access to protect monastic privacy",
     "yesDelta": {
-      "research": 10,
-      "religiousAutonomy": -6
+      "liberalism": 10,
+      "antiquity": 10,
+      "religion": -20
     },
     "noDelta": {
-      "religiousAutonomy": 9,
-      "research": -5
+      "religion": 10,
+      "liberalism": -10,
+      "antiquity": -10
     }
   },
   "narrativeConflict": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should public education emphasize archaeological over ecclesiastical narratives of Christianization?",
-    "yes": "Prioritize evidence-based archaeological narratives",
+    "image": "image/education.jpg",
+    "question": "For a long time, the public education of our country gave triumphant reading of the spread of Orthodox church. Now, many liberals oppose this view, and call for more secular and academic approach to this subject. Should public education emphasize archaeological over ecclesiastical narratives of Christianization?",
+    "yes": "Prioritize evidence-based academic approach",
     "no": "Support traditional Church accounts in national storytelling",
     "yesDelta": {
-      "education": 9,
-      "churchInfluence": -5
+      "antiquity": 10,
+      "liberalism": 10,
+      "religion": -15
     },
     "noDelta": {
-      "churchInfluence": 8,
-      "education": -4
+      "religion": 10,
+      "liberalism": -15
     }
   },
   "churchExcavationAccess": {
-    "image": "image/mountAthos.jpg",
-    "question": "Should archaeologists be allowed to excavate beneath active churches if ancient remains are suspected?",
+    "image": "image/salonikaMetro.jpg",
+    "question": " In Thessaloniki, during Metro construction, disputes emerged when significant artifacts were found beneath churches. Should the archaeologists be allowed to excavate beneath active churches if ancient remains are suspected?",
     "yes": "Permit excavation under strict guidelines",
     "no": "Deny excavation to avoid disrupting sacred spaces",
     "yesDelta": {
-      "discovery": 9,
-      "religiousSentiment": -5
+      "antiquity": 10,
+      "religion": -10
     },
     "noDelta": {
-      "religiousSentiment": 8,
-      "discovery": -4
+      "religion": 10,
+      "antiquity": -10
     }
   },
 
 
 
   "tutorial": {
-    "image": "image/mountAthos.jpg",
-      "question":"Welcome to your office, dear prime minister.",
+    "image": "image/minister.jpg",
+      "question":"Welcome to your office, dear prime minister. You are finally at the very top of the power of this country. However, there is no time to congratulate your victory, as your desk is already full of proposals waiting for your review. Would you be able to keep up with the expectation of the people of Hellas?",
       "yes": "...",
       "no": "...",
       "yesDelta": {

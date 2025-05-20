@@ -24,5 +24,35 @@
       "economy": 5,
       "antiquity": -5
     }
+  },
+
+  "religiousEducation": {
+    "image": "image/mountAthos.jpg",
+    "question": "Should Greece remove confessional religious education from public schools?",
+    "yes": "Replace with neutral, comparative religion curriculum",
+    "no": "Keep Orthodox Christianity central to school teachings",
+    "yesDelta": {
+      "pluralism": 9,
+      "orthodoxIdentity": -5
+    },
+    "noDelta": {
+      "orthodoxIdentity": 8,
+      "pluralism": -6
+    }
+  },
+
+  "covidResponse": {
+    "image": "image/mountAthos.jpg",
+    "question": "Should the Church have complied fully with public health restrictions during the pandemic?",
+    "yes": "Prioritize public health over ritual practices",
+    "no": "Maintain sacraments and gatherings despite restrictions",
+    "yesDelta": {
+      "publicHealth": 10,
+      "religiousFreedom": -4
+    },
+    "noDelta": {
+      "religiousFreedom": 7,
+      "publicHealth": -8
+    }
   }
 }

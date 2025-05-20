@@ -1,0 +1,6 @@
+1. Progress bars shake when in danger
+2. Size the progress bar arrows proportionally to the change
+3. Background art
+4. Implement progress bar images
+5. Ending typingLabel and sound
+6. Font
