@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Stack
 import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.utils.Align
 import com.truewis.elladas.MeterUI
+import ktx.actors.alpha
 import ktx.scene2d.container
 import ktx.scene2d.image
 import ktx.scene2d.progressBar
@@ -38,13 +39,14 @@ class TopStatusBar(skin: Skin) : Table() {
         val container = Table(skin)
         container.setBackground("white")
         container.color = Color.NAVY
+        container.add(Label("~~~~~~~~~~~~~~~~~opinions~~~~~~~~~~~~~~~~~", skin)).colspan(4).row()
 
 
 // inside init block, update the forEach block
         statusNames.forEach { statusName ->
             val label = Label(statusName, skin)
-            val bar = ProgressBarA(0f, 100f, 1f, true, skin).apply {
-                setValue(50f)
+            val bar = ProgressBarA(0f, 60f, 1f, true, skin).apply {
+                setValue(30f)
                 animateDuration = 0.3f
             }
 
@@ -93,11 +95,12 @@ class TopStatusBar(skin: Skin) : Table() {
             ).padBottom(2f).grow().row()
             barColumn.add(downArrow).size(arrowSize)
 
-            container.add(barColumn).pad(20f).size(110f, 200f).fill()
+            container.add(barColumn).pad(20f).size(90f, 150f).fill()
 
             statusUIs.add(StatusUI(label, bar, upArrow, downArrow))
         }
-
+        container.row()
+        container.add(Label("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", skin)).colspan(4)
         add(container).expand().top().fill(0.3f, 0.10f)
         row()
         add(yearText).growX().center()
@@ -113,7 +116,7 @@ class TopStatusBar(skin: Skin) : Table() {
                 animateBars(status.progressBar) // Animate outline if value too low
             else {
                 status.progressBar.clearActions()
-                status.progressBar.setScale(1f)
+                status.progressBar.alpha = 1f
             }
         }
         yearText.setText("Year: "+(2025 + values["time"]!!).toString())
@@ -131,12 +134,12 @@ class TopStatusBar(skin: Skin) : Table() {
             // Animate arrows based on change
             if (newVal > 0) {
                 status.upArrow.isVisible = true
-                status.upArrow.setColor(0f, 1f, 0f, abs(newVal) /20f)
+                //status.upArrow.setColor(0f, 1f, 0f, abs(newVal) /20f)
                 status.downArrow.isVisible = false
             } else if (newVal < 0) {
                 status.upArrow.isVisible = false
                 status.downArrow.isVisible = true
-                status.downArrow.setColor(1f, 0f, 0f, abs(newVal) /20f)
+                //status.downArrow.setColor(1f, 0f, 0f, abs(newVal) /20f)
             } else {
                 status.upArrow.isVisible = false
                 status.downArrow.isVisible = false

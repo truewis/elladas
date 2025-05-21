@@ -1,7 +1,7 @@
 {
   "religion":  {
     "music": "music/religion.mp3",
-    "image": "image/minister.jpg",
+    "image": "image/religion.jpg",
     "question":
     "Mr. Prime Minister, the Patriarch of Constantinople has called for a national fast and prayer ahead of tomorrow's emergency vote. Clergy are openly calling for a new form of government.",
 
@@ -26,7 +26,7 @@
 
   "lowLiberalism":  {
     "music": "music/lowLiberalism.mp3",
-    "image": "image/minister.jpg",
+    "image": "image/lowLiberalism.jpg",
     "question":"Dear Prime Minister, Syntagma Square is full of angry people! This protest is unlike the past ones.",
     "answer": "Ha! We'll see.",
     "ending": "The prime minister, who blatantly ignored human rights and democratic institutions, is no more. At government ministries, staffers whispered and moved briskly. Phones rang off the hook. Foreign embassies issued measured statements of concern and support for democratic stability. Markets wavered. European leaders scheduled emergency meetings. The president, now the interim head of state, called for unity. But for everyday Greeks, it was a strange mix of relief, unease, and grim satisfaction."
@@ -35,7 +35,7 @@
 
   "lowAntiquity":  {
     "music": "music/lowAncient.mp3",
-    "image": "image/minister.jpg",
+    "image": "image/lowAncient.jpg",
     "question":"Dear Prime Minister, people are now convinced that you are destroying the history of this country. Scholars all over the world have filed a petition against your government's revisionist views.",
     "answer": "But this is what the people wanted.",
     "ending": "Obsession to the past has set back this country for too long. Now, amphitheaters are rebranded to shopping complexes, and ancient sanctuaries are paved over for high-speed transit hubs. Resistances were short-lived, and even them were eventually given what they really wanted: prosperity. For a generation raised without ruins, their identity will no longer reside in the obsolete past but in the glorious future that will unfold in front of their eyes."
@@ -43,7 +43,7 @@
   },
   "lowEconomy":  {
     "music": "music/lowEconomy.mp3",
-    "image": "image/minister.jpg",
+    "image": "image/lowEconomy.jpg",
     "question":"Dear Prime Minister, the European Central Bank seems to have lost the last bit of its patience. And our people would rather die than to accept their conditions.",
     "answer": "It's not my fault...",
     "ending": "The constant government overspending was not sustainable. Markets had already crashed. The eurozone had frozen Greece's accounts after last-ditch talks collapsed over pension cuts and tax hikes. The IMF walked away. The ECB refused emergency liquidity. Berlin was stern. The Prime Minister's resignation had come at midnight. Greece and its people will eventually survive the turmoil as they have many times before, but the same cannot be said for the prime minister. People will remember you as a single person who is responsible for their hardships."
@@ -51,7 +51,7 @@
   },
   "lowReligion":  {
     "music": "music/religion.mp3",
-    "image": "image/minister.jpg",
+    "image": "image/religion.jpg",
     "question":"Dear Prime Minister, the Patriarch of Constantinople has expressed concern against your government, and this is not the first time. Discontent people are gathering into churches.",
     "answer": "Regressive assholes...",
     "ending": "It was Sunday morning, and bells tolled across Greece both in celebration and in protest. The ruling party had been defeated by the largest margin in the history of the republic. In backlash to the Prime Minister's recent blatant insult toward the Orthodox Church, right-wing parties, supported by religious fundamentalists, rose to power. Secular reformists hoped to modernize Greece. But instead, they reminded it of what it refuses to let go. "

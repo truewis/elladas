@@ -39,14 +39,15 @@ class Main : ApplicationAdapter() {
     private lateinit var separator: Separator
     private lateinit var window:Window
     private lateinit var endingDescription:TypingLabel
+    private lateinit var endingImage:Image
     lateinit var musicManager: MusicManager
-    val gState = hashMapOf("religion" to 50, "antiquity" to 50, "economy" to 50, "liberalism" to 50, "time" to 0)
+    val gState = hashMapOf("religion" to 30, "antiquity" to 30, "economy" to 30, "liberalism" to 30, "time" to 0)
     val assetManager = AssetManager()
     fun startAgain(){
-        gState["religion"] = 50
-        gState["antiquity"] = 50
-        gState["economy"] = 50
-        gState["liberalism"] = 50
+        gState["religion"] = 30
+        gState["antiquity"] = 30
+        gState["economy"] = 30
+        gState["liberalism"] = 30
         gState["time"] = 0
         exhaustedKeys.clear()
         musicManager.playMusic("main")
@@ -77,15 +78,8 @@ class Main : ApplicationAdapter() {
             Texture::class.java, TextureLoader(resolver)
         )
         assetManager.load("image/desk.jpg", Texture::class.java)
-        assetManager.finishLoadingAsset<Texture>("image/desk.jpg")
+        assetManager.load("image/paper.jpg", Texture::class.java)
 
-        storyJson.forEach {
-            assetManager.load(it.value.jsonObject["image"]!!.jsonPrimitive.content, Texture::class.java)
-        }
-
-        endingJson.forEach {
-            assetManager.load(it.value.jsonObject["image"]!!.jsonPrimitive.content, Texture::class.java)
-        }
 //        println("Explicit asset imports successful.")
 //        assetManager.finishLoading()
 
@@ -102,6 +96,17 @@ class Main : ApplicationAdapter() {
         val param = SkinLoader.SkinParameter(fontMap)
         assetManager.load("ui2.json", Skin::class.java, param)
         assetManager.finishLoading()
+
+
+        storyJson.forEach {
+            assetManager.load(it.value.jsonObject["image"]!!.jsonPrimitive.content, Texture::class.java)
+        }
+
+        endingJson.forEach {
+            assetManager.load(it.value.jsonObject["image"]!!.jsonPrimitive.content, Texture::class.java)
+        }
+
+
         skin = assetManager.get("ui2.json")
         stage.addActor(
             Image(TextureRegionDrawable(assetManager.get(
@@ -114,8 +119,10 @@ class Main : ApplicationAdapter() {
         window = Window("Game Over", skin, "default")
         endingDescription= TypingLabel("", skin)
         endingDescription.wrap = true
+        endingImage = Image()
 
         window.defaults().pad(4f)
+        window.add(endingImage).grow().row()
         window.add(endingDescription).grow().row()
         val button = TextButton("New Game", skin)
         button.pad(8f)
@@ -239,7 +246,12 @@ class Main : ApplicationAdapter() {
 
     }
     fun ending(key:String){
-        endingDescription.setText(endingJson[key]!!.jsonObject["ending"]!!.jsonPrimitive.content)
+        endingImage.drawable = TextureRegionDrawable(assetManager.get(
+            endingJson[key]!!.jsonObject["image"]!!.jsonPrimitive.content,
+                Texture::class.java
+            )!!)
+        endingDescription.restart(endingJson[key]!!.jsonObject["ending"]!!.jsonPrimitive.content)
+        window.layout()
         window.isVisible = true
     }
 

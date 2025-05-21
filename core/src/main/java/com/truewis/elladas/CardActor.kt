@@ -44,22 +44,29 @@ class CardActor(
     val img = scene2d.image {  }
 
     val stack = scene2d.stack{
-        image(drawableName = "button")
+        image(drawableName = "white"){
+            drawable = TextureRegionDrawable(
+                Main.instance.assetManager.get(
+                    "image/paper.jpg",
+                    Texture::class.java
+                )!!
+            )
+        }
         var desc = ""
         if(key !in Main.endingKeys)
             desc = Main.storyJson[key]!!.jsonObject["question"]!!.jsonPrimitive.content
         else
             desc = Main.endingJson[key]!!.jsonObject["question"]!!.jsonPrimitive.content
 
-
         table {
-            add(img).fill()
+            add(img).fill().pad(10f)
             row()
             label(desc) {
                 it.grow()
-                it.minHeight(450f)
+                it.minHeight(350f)
                 wrap = true
                 setAlignment(Align.center)
+                color = Color.BLACK
             }
         }
     }
@@ -68,7 +75,7 @@ class CardActor(
         Main.exhaustedKeys.add(key)
         onStateChange.forEach { it(CardActorState.NEUTRAL, key) }
         width = 400f
-        height = 700f
+        height = 600f
 
 
         var imgName = ""
@@ -88,7 +95,7 @@ class CardActor(
         add(stack).fill()
         setPosition(
             (Gdx.graphics.width - width) / 2f,
-            (Gdx.graphics.height - height) / 2f
+            (Gdx.graphics.height - height) / 2f - 60f
         )
 
         addListener(object : InputListener() {
