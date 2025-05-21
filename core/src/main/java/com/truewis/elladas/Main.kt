@@ -6,19 +6,24 @@ import TopStatusBar
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.assets.AssetManager
+import com.badlogic.gdx.assets.loaders.SkinLoader
 import com.badlogic.gdx.assets.loaders.TextureLoader
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver
 import com.badlogic.gdx.audio.Sound
 import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator
 import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
+import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.ui.Window
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable
+import com.badlogic.gdx.utils.ObjectMap
 import kotlinx.serialization.json.*
 import com.badlogic.gdx.utils.ScreenUtils
 import com.badlogic.gdx.utils.viewport.FitViewport
@@ -71,8 +76,8 @@ class Main : ApplicationAdapter() {
         assetManager.setLoader(
             Texture::class.java, TextureLoader(resolver)
         )
-        assetManager.load("image/mountAthos.jpg", Texture::class.java)
-        assetManager.finishLoading()
+        assetManager.load("image/desk.jpg", Texture::class.java)
+        assetManager.finishLoadingAsset<Texture>("image/desk.jpg")
 
         storyJson.forEach {
             assetManager.load(it.value.jsonObject["image"]!!.jsonPrimitive.content, Texture::class.java)
@@ -85,8 +90,27 @@ class Main : ApplicationAdapter() {
 //        assetManager.finishLoading()
 
 
-        skin = Skin(Gdx.files.internal("ui2.json"))
-
+        val gen = FreeTypeFontGenerator(Gdx.files.internal("byzantine.ttf"))
+        val parameter = FreeTypeFontGenerator.FreeTypeFontParameter()
+        parameter.size = 30
+        //Include the below line for Unicode support
+        //parameter.characters = Gdx.files.internal("korean2350.txt").readString("UTF-8")
+        val nanum = gen.generateFont(parameter)
+        val fontMap = ObjectMap<String, Any>()
+        fontMap.put("byzantine", nanum)
+        gen.dispose()
+        val param = SkinLoader.SkinParameter(fontMap)
+        assetManager.load("ui2.json", Skin::class.java, param)
+        assetManager.finishLoading()
+        skin = assetManager.get("ui2.json")
+        stage.addActor(
+            Image(TextureRegionDrawable(assetManager.get(
+                "image/desk.jpg",
+                Texture::class.java
+            ))).apply{
+                setFillParent(true)
+            }
+        )
         window = Window("Game Over", skin, "default")
         endingDescription= TypingLabel("", skin)
         endingDescription.wrap = true
@@ -114,6 +138,7 @@ class Main : ApplicationAdapter() {
         Scene2DSkin.defaultSkin = skin
         statusBar = TopStatusBar(skin)
         stage.addActor(statusBar)
+
 
 
 

@@ -57,7 +57,7 @@ class CardActor(
             row()
             label(desc) {
                 it.grow()
-                it.minHeight(300f)
+                it.minHeight(450f)
                 wrap = true
                 setAlignment(Align.center)
             }

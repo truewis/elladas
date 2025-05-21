@@ -15,10 +15,27 @@ import kotlin.math.min
 class IndicatorLabel(faceRight: Boolean) : Table(), KTable {
     lateinit var label:Label
     init {
-        image("tree-plus") {  }
-        label = label(""){
+        if(faceRight) {
+            label = label(""){
+
+            }
+            image("tree-plus") {
+it.pad(10f)
+                setScale(2f)
+            }
+        }
+        else
+        {
+            image("tree-plus") {
+                it.pad(10f)
+            setScale(-2f, 2f)
+            }
+            label = label(""){
+
+            }
 
         }
+
 
 
 

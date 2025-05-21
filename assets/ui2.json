@@ -394,7 +394,7 @@ com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
 }
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: {
-		font: font
+		font: byzantine
 	}
 	menuitem-shortcut: {
 		font: font
@@ -416,11 +416,11 @@ com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
 }
 com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
 	default-horizontal: {
-		background: progress-bar-horizontal
+		background: black
 		knobBefore: progress-bar-knob-horizontal
 	}
 	default-vertical: {
-		background: progress-bar-vertical
+		background: black
 		knobBefore: progress-bar-knob-vertical
 	}
 }
