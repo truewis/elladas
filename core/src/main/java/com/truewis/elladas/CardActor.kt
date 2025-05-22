@@ -152,7 +152,14 @@ class CardActor(
                 val newCard =
                     CardActor(stage, skin, it, onStateChange, gState)
                 stage.addActor(newCard)
-            } else {
+            }
+            else if (key == "title"){
+                val newCard =
+                    CardActor(stage, skin, "tutorial", onStateChange, gState)
+                stage.addActor(newCard)
+
+            }
+            else {
                 val newCard =
                     CardActor(stage, skin, (Main.storyJson.keys - exhaustedKeys).random(), onStateChange, gState)
                 stage.addActor(newCard)

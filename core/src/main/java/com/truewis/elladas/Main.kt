@@ -50,6 +50,8 @@ class Main : ApplicationAdapter() {
         gState["liberalism"] = 30
         gState["time"] = 0
         exhaustedKeys.clear()
+        exhaustedKeys.add("title")
+        exhaustedKeys.add("tutorial")
         musicManager.playMusic("main")
         val card = CardActor(stage, skin, "tutorial", arrayListOf(this::func), gState)
         stage.addActor(card)
@@ -156,7 +158,7 @@ class Main : ApplicationAdapter() {
 
 
 
-        val card = CardActor(stage, skin, "tutorial", arrayListOf(this::func), gState)
+        val card = CardActor(stage, skin, "title", arrayListOf(this::func), gState)
         stage.addActor(card)
 
 
@@ -271,7 +273,7 @@ class Main : ApplicationAdapter() {
     }
 
     companion object {
-        val exhaustedKeys = hashSetOf<String>()
+        val exhaustedKeys = hashSetOf<String>("tutorial", "title")
         val storyJson = Json.parseToJsonElement(
             Gdx.files?.internal("story.json")?.readString() ?: File("../assets/story.json").readText()
         ).jsonObject

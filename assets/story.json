@@ -28,7 +28,7 @@
   },
   "odeionOfHerodesAtticus": {
     "image": "image/odeionOfHerodesAtticusAthens.jpg",
-    "question":"The Odeion of Herodes Atticus stands right below the Acropolis of Athens. Its preservation has not been the focus of major public controversy, but debates have occurred over its use: some archaeologists warned against \"overcommercializing\" ancient theaters by staging modern performances. Indeed, it seems the wear and tear of people is gradually taking its toll on the monument. ",
+    "question":"The Odeion of Herodes Atticus stands right below the Acropolis of Athens. Its preservation has not been the focus of major public controversy, but debates have occurred over its use: some archaeologists warned against \"overcommercializing\" ancient theaters by staging modern performances. What is the government's opinion?",
     "yes": "Reduce the number of performances",
     "no": "No monument is permanent, after all",
     "yesDelta": {
@@ -43,28 +43,27 @@
   },
   "acropolisMuseum": {
     "image": "image/acropolisMuseumAthens.jpg",
-    "question":"It is well known that during the construction of the Acropolis Museum at Athens, a couple 20th-century buildings had to be demolished to open the line of view from the museum to the ancient Acropolis. ",
-    "yes": "...",
-    "no": "...",
+    "question":"It is well known that during the construction of the Acropolis Museum at Athens, a couple 20th-century buildings had to be demolished to open the line of view from the museum to the ancient Acropolis. More buildings will be demolished as the museum expands. What is the government's opinion? ",
+    "yes": "Post Byzantine buildings are not as important",
+    "no": "The museum and the excavation below is already big enough",
     "yesDelta": {
-      "religion": 20
+      "liberalism": -10
     },
     "noDelta": {
-      "antiquity": -5,
-      "economy": 5
+      "antiquity": -10
     }
 
   },
   "british": {
     "image": "image/british.jpg",
-    "question":"What is the government's opinion on marble pieces in the British Museum?",
-    "yes": "History does not negotiate",
-    "no": "Accept the deal",
+    "question":"It seemed that the issue is well settled, but recent protests have shown that some people are not happy with the status quo of the british museum. However, the UK have also proved to be a great economic partner. What is the government's opinion on Parthenon marble pieces in the British Museum?",
+    "yes": "Reclaim the marbles, no matter how much it costs",
+    "no": "The past must not hold us back",
     "yesDelta": {
+      "economy": -10
     },
     "noDelta": {
-      "antiquity": -10,
-      "economy": 10
+      "antiquity": -10
     }
 
   },
@@ -83,28 +82,30 @@
   },
   "pellaTombs": {
     "image": "image/pellaTomb.jpg",
-    "question": "A?",
-    "yes": "Preserve artifacts in their place of origin",
-    "no": "Centralize artifacts for national display",
+    "question": "Archaeologists have recently questioned whether Phillip B is actually buried in the royal tombs at Pella. Locals have expressed discomfort against such accusations. What would the government's opinion be?",
+    "yes": "This is an attempt to dismantle Macedonian identity",
+    "no": "Museum must listen to academic consensus",
     "yesDelta": {
-      "antiquity": 10
+      "antiquity": -10
     },
     "noDelta": {
-      "economy": 10,
-      "antiquity": -10
+      "liberalism": -10,
+      "economy": -10,
+      "antiquity": 15
     }
   },
   "dion": {
     "image": "image/dionSanctuary.jpg",
-    "question": "The abandoned cement factory at Dion was cleared for archaeological preservation after pressure from UNESCO. What would the government's opinion be?",
+    "question": "The abandoned cement factory at Dion was cleared for archaeological preservation after pressure from unesco. Locals are not happy with such interventions. What would the government's opinion be?",
     "yes": "Support full site restoration and protection",
     "no": "Permit partial development to attract donors",
     "yesDelta": {
-      "antiquity": 15
+      "antiquity": 10,
+      "liberalism": -10
     },
     "noDelta": {
       "economy": 10,
-      "antiquity": -5
+      "antiquity": -10
     }
   },
   "perachora": {
@@ -118,16 +119,17 @@
     },
     "noDelta": {
       "economy": 10,
-      "liberalism": 5
+      "liberalism": 10
     }
   },
   "corinth": {
     "image": "image/corinthTemple.jpg",
-    "question": "Ancient Corinth was one of the most important city-states in ancient Greece, known for its wealth and strategic location connecting the gulf of Corinth to the Aegean sea. Recently, the ring road and museum construction in Corinth have disturbed unexcavated remains. What would the government's opinion be?",
+    "question": "Ancient Corinth was one of the most important city-states in ancient Greece, known for its wealth and strategic location connecting the gulf of Corinth to the Aegean sea. Recently, constructions in Corinth have disturbed unexcavated remains. What would the government's opinion be?",
     "yes": "Uphold archaeological protection",
     "no": "Support regional economic growth",
     "yesDelta": {
-      "antiquity": 15
+      "antiquity": 15,
+      "economy": -10
     },
     "noDelta": {
       "economy": 15,
@@ -140,11 +142,10 @@
     "yes": "Support ongoing collaboration with foreign institutions",
     "no": "Reclaim excavation rights for full national control",
     "yesDelta": {
-      "liberalism": 5,
-      "economy": 5
+      "liberalism": 10
     },
     "noDelta": {
-      "antiquity": 10,
+      "antiquity": 15,
       "liberalism": -10
     }
   },
@@ -158,7 +159,7 @@
     },
     "noDelta": {
       "economy": 10,
-      "antiquity": -5
+      "antiquity": -15
     }
   },
   "pnyx": {
@@ -167,10 +168,12 @@
     "yes": "Limit infrastructure to preserve authenticity",
     "no": "Allow improvements for visitor experience",
     "yesDelta": {
-      "antiquity": 10
+      "antiquity": 10,
+      "economy": -10
     },
     "noDelta": {
-      "economy": 5
+      "economy": 10,
+      "antiquity": -10
     }
   },
   "libraryHadrian": {
@@ -180,11 +183,11 @@
     "no": "Allow adaptive tourist use of the site",
     "yesDelta": {
       "antiquity": 10,
-      "economy": -5
+      "economy": -15
     },
     "noDelta": {
-      "economy": 5,
-      "antiquity": -10
+      "economy": 10,
+      "antiquity": -15
     }
   },
   "eretria": {
@@ -194,11 +197,12 @@
     "no": "Permit expansion under development oversight",
     "yesDelta": {
       "antiquity": 10,
-      "liberalism": -10
+      "liberalism": -10,
+      "economy": -10
     },
     "noDelta": {
       "economy": 10,
-      "antiquity": -5
+      "antiquity": -15
     }
   },
   "lefkandi": {
@@ -220,24 +224,24 @@
     "yes": "Restrict development to preserve the sanctuary",
     "no": "Support development to boost regional tourism",
     "yesDelta": {
-      "antiquity": 10
+      "antiquity": 10,
+      "economy": -15
     },
     "noDelta": {
       "economy": 10,
-      "antiquity": -5
+      "antiquity": -10
     }
   },
   "epidauros": {
     "image": "image/epidaurosSanctuary.jpg",
-    "question": "Proposals to install aquaculture ponds and wind turbines near the UNESCO-protected sanctuary of Epidaurus have drawn criticism from Europa Nostra and NGOs. Should the government allow them?",
+    "question": "Proposals to install aquaculture ponds and wind turbines near the sanctuary of Epidaurus have drawn criticisms. Should the government allow them?",
     "yes": "Block developments to preserve the sanctuary's integrity",
     "no": "Allow limited development under environmental review",
     "yesDelta": {
-      "antiquity": 10
     },
     "noDelta": {
-      "economy": 5,
-      "antiquity": -5
+      "economy": 10,
+      "antiquity": -10
     }
   },
   "nafplio": {
@@ -246,12 +250,13 @@
     "yes": "Ban major modern installations in heritage zones",
     "no": "Permit attractions to stimulate local tourism",
     "yesDelta": {
-      "antiquity": 5,
-      "liberalism": -10
+      "antiquity": 10,
+      "liberalism": -10,
+      "economy": -10
     },
     "noDelta": {
       "economy": 10,
-      "antiquity": -5
+      "antiquity": -15
     }
   },
   "tiryns": {
@@ -260,12 +265,12 @@
     "yes": "Use modern supports to stabilize and protect the site",
     "no": "Limit intervention to non-invasive conservation",
     "yesDelta": {
-      "antiquity": 5,
-      "economy": 3
+      "antiquity": -10,
+      "economy": 10
     },
     "noDelta": {
-      "antiquity": 7,
-      "economy": -2
+      "antiquity": 10,
+      "economy": -10
     }
   },
   "mycenae": {
@@ -274,21 +279,22 @@
     "yes": "Halt infrastructure work and prioritize seismic safety",
     "no": "Continue development to improve tourist access",
     "yesDelta": {
-      "antiquity": 10
+      "antiquity": 10,
+      "economy": -10
     },
     "noDelta": {
       "economy": 10,
-      "antiquity": -5
+      "antiquity": -10
     }
   },
   "lerna": {
     "image": "image/lernaField.jpg",
-    "question": "Farmers near Lerna protested excavation restrictions in the 1990s. Should agricultural interests take priority over archaeological access?",
+    "question": "Lerna is known as one of the oldest human settlement in Argolid. Farmers near Lerna protested excavation restrictions since the 1990s. Should agricultural interests take priority over archaeological access?",
     "yes": "Relax protections to support local farming",
     "no": "Maintain excavation priority and site protection",
     "yesDelta": {
-      "economy": 5,
-      "antiquity": -5
+      "economy": 10,
+      "antiquity": -10
     },
     "noDelta": {
       "antiquity": 10,
@@ -302,12 +308,12 @@
     "no": "Enforce strict heritage protection rules",
     "yesDelta": {
       "economy": 10,
-      "antiquity": -10
+      "antiquity": -15
     },
     "noDelta": {
-      "antiquity": 9,
-      "economy": -5,
-      "liberalism": -5
+      "antiquity": 15,
+      "economy": -10,
+      "liberalism": -10
     }
   },
   "asine": {
@@ -316,26 +322,24 @@
     "yes": "Encourage foreign institutions to invest in research",
     "no": "Prioritize domestic teams for local excavation",
     "yesDelta": {
-      "economy": 5,
-      "antiquity": 5
+      "liberalism": 10
     },
     "noDelta": {
-      "antiquity": 10,
-      "economy": -5
+      "antiquity": 10
     }
   },
   "nemea": {
     "image": "image/nemeaStadium.jpg",
-    "question": "Some archaeologists worry the revived Nemean Games could damage the sanctuary?s structures. Should large-scale events continue?",
+    "question": "Some archaeologists worry the revived Nemean Games could damage the sanctuary's structures. Should large-scale events continue?",
     "yes": "Support events to promote cultural tourism",
     "no": "Limit gatherings to protect the archaeological site",
     "yesDelta": {
-      "economy": 10,
-      "antiquity": -5
+      "economy": 15,
+      "antiquity": -10
     },
     "noDelta": {
-      "antiquity": 10,
-      "economy": -5
+      "antiquity": 15,
+      "economy": -10
     }
   },
   "amphiareion": {
@@ -345,95 +349,70 @@
     "no": "Construct the visitor center near the sanctuary for convenience",
     "yesDelta": {
       "antiquity": 10,
-      "liberalism": 5
+      "liberalism": 10,
+      "economy": -10
     },
     "noDelta": {
-      "economy": 5,
-      "liberalism": -5
-    }
-  },
-  "rhamnous": {
-    "image": "image/rhamnousSanctuary.jpg",
-    "question": "After a chapel was controversially built near Rhamnous temple, what should future policy be?",
-    "yes": "Relocate or redesign religious structures to preserve site authenticity",
-    "no": "Allow modern religious buildings near the ruins",
-    "yesDelta": {
-      "antiquity": 10,
-      "religion": -10
-    },
-    "noDelta": {
-      "religion": 10,
-      "antiquity": -10
+      "economy": 10,
+      "liberalism": -10
     }
   },
   "brauron": {
     "image": "image/brauronSanctuary.jpg",
-    "question": "Should Brauron's Temple of Artemis be enclosed in a modern protective structure?",
-    "yes": "Build a discreet shelter that preserves rural views",
+    "question": "Since antiquity, Brauron's Temple of Artemis has been exposed to slow natural degradation. Recent pollution could have accelerated this process. Should Brauron's Temple of Artemis be enclosed in a modern protective structure?",
+    "yes": "No monument is permanent, after all",
     "no": "Construct a full museum enclosure for better conservation",
     "yesDelta": {
-      "antiquity": 5
-    },
-    "noDelta": {
-      "antiquity": 10,
-      "economy": -5
-    }
-  },
-  "thorikos": {
-    "image": "image/thorikosTheater.jpg",
-    "question": "Should industrial companies near Thorikos be allowed to expand operations again?",
-    "yes": "Restrict quarrying to protect ancient mining and theater remains",
-    "no": "Permit industrial activity to revive the local economy",
-    "yesDelta": {
-      "antiquity": 10,
-      "economy": -5
-    },
-    "noDelta": {
-      "economy": 5,
       "antiquity": -10
+    },
+    "noDelta": {
+      "antiquity": 10,
+      "economy": -10
     }
   },
+
   "sounion": {
     "image": "image/sounion.jpg",
-    "question": "Should restoration at Sounion continue using new marble pieces?",
-    "yes": "Support careful reconstruction using authentic materials",
-    "no": "Limit new material to avoid altering the original monument",
+    "question": "Sounion, at the southern end of Attica, is known for the Poseidon temple. But some people also want to build a memorial next to the site, to signify modern state atrocities happened in a nearby island, Makronisos. What is the government's opinion",
+    "yes": "Allow the construction of the memorial",
+    "no": "Avoid giving wrong impressions to the tourists",
     "yesDelta": {
-      "antiquity": -5,
-      "economy": 5
+      "antiquity": -10,
+      "liberalism": 10
+    },
+    "noDelta": {
+      "antiquity": 10,
+      "liberalism": -15
+    }
+  },
+  "delphi": {
+    "image": "image/delphi.jpg",
+    "question": "The site of Delphi is surrounded by mountains, which also turns out to be adequate site for wind turbines, which alters the landscape and make noises. Should renewable energy projects be allowed despite concerns?",
+    "yes": "Expand wind farms to boost the economy",
+    "no": "Stop development to protect Delphi's sacred landscape",
+    "yesDelta": {
+      "economy": 15,
+      "antiquity": -10
     },
     "noDelta": {
       "antiquity": 10
     }
   },
-  "delphi": {
-    "image": "image/delphi.jpg",
-    "question": "Should renewable energy projects be allowed near Delphi despite UNESCO concerns?",
-    "yes": "Expand wind farms and marble quarries to boost the economy",
-    "no": "Stop development to protect Delphi?s sacred landscape",
+  "olympia": {
+    "image": "image/olympia.jpg",
+    "question": "Frequent floods are damaging the site of Olympia. The government is constantly funding the site for repairs, but some people think it is better to invest on the adjacent museum instead. Should funding prioritize Olympia's museum expansion over flood prevention?",
+    "yes": "Focus funds on showcasing artifacts in a new museum",
+    "no": "Keep funds to protect the site from floods",
     "yesDelta": {
-      "economy": 10,
       "antiquity": -10
     },
     "noDelta": {
-      "antiquity": 5
-    }
-  },
-  "olympia": {
-    "image": "image/olympia.jpg",
-    "question": "Should funding prioritize Olympia's museum expansion over flood prevention?",
-    "yes": "Focus funds on showcasing artifacts in a new museum",
-    "no": "Redirect funds to infrastructure to protect the site from floods",
-    "yesDelta": {
-      "economy": -5
-    },
-    "noDelta": {
-      "antiquity": -5
+      "economy": -10
     }
   },
   "sparta": {
     "image": "image/spartaSanctuary.jpg",
-    "question": "Should new Sparta visitor centers focus on historical accuracy or promote mythic Spartan identity?",
+    "question": "Sparta has been promoted through ???Should new Sparta visitor centers focus on historical accuracy or promote mythic Spartan identity?",
     "yes": "Prioritize scholarly interpretation to counter extreme narratives",
     "no": "Encourage local pride by embracing Spartan myths",
     "yesDelta": {
@@ -450,19 +429,19 @@
     "yes": "Allow private funding with oversight to ensure preservation",
     "no": "Reject donor conditions to avoid compromising heritage values",
     "yesDelta": {
-      "economy": 10,
-      "antiquity": -5
+      "economy": 15,
+      "antiquity": -10
     },
     "noDelta": {
       "antiquity": 10,
-      "economy": -5
+      "economy": -15
     }
   },
   "churchStateRelations": {
     "image": "image/mountAthos.jpg",
     "question": "As everyone knows, our government maintains strong ties with the Orthodox church, despite global trend of secularism. Should Greece fully separate church and state by ending public funding and religious oaths?",
     "yes": "Revise the laws and remove church privileges",
-    "no": "Preserve the Church's traditional role in public life",
+    "no": "The Orthodox church is the foundation of our country",
     "yesDelta": {
       "liberalism": 15,
       "religion": -20
@@ -474,23 +453,24 @@
   },
   "propertyTransparency": {
     "image": "image/mountAthos.jpg",
-    "question": "Should the Church of Greece be required to publicly disclose all assets and pay regular taxes?",
+    "question": "Modernization of our country has involved confiscating lands and tax rights from monastaries. Yet, the Orthodox church is still given significant tax benefits. Should the church be required to publicly disclose all assets and pay regular taxes?",
     "yes": "Enforce full financial transparency and taxation",
-    "no": "Maintain current opaque property arrangements",
+    "no": "These monastaries are far older than the republic itself",
     "yesDelta": {
-      "transparency": 10,
-      "churchInfluence": -6
+      "economy": 15,
+      "liberalism": 10,
+      "religion": -20
     },
     "noDelta": {
-      "churchInfluence": 7,
-      "publicTrust": -7
+      "religion": 15,
+      "liberalism": -10
     }
   },
   "macedoniaDispute": {
     "image": "image/macedonia.jpg",
     "question": "Quite a few people in our country, especially those in the Orthodox church, still does not like the neighboring country's name which includes 'Macedonia'. They want the government to raise the voice over the issue. What would be the government's stance?",
-    "yes": "Support diplomatic resolutions over nationalist concerns",
-    "no": "Side with the nationalists and oppose the use of 'Macedonia' by other nations",
+    "yes": "They can call themselves whatever they want",
+    "no": "Oppose the use of the name by other nations",
     "yesDelta": {
       "liberalism": 15,
       "antiquity": -10,
@@ -503,16 +483,16 @@
   },
   "lgbtqRights": {
     "image": "image/mountAthos.jpg",
-    "question": "Should the Church embrace legal rights for LGBTQ+ individuals, including civil unions and marriage?",
+    "question": "Recent protests for gender minority rights have met harsh opposition of the Orthodox church. Should the government embrace legal rights for gender minority individuals, including civil unions and marriage?",
     "yes": "Promote inclusivity and equal rights",
     "no": "Maintain traditional teachings and oppose legal changes",
     "yesDelta": {
-      "equality": 10,
-      "conservatism": -6
+      "liberalism": 15,
+      "religion": -20
     },
     "noDelta": {
-      "conservatism": 8,
-      "socialHarmony": -7
+      "religion": 10,
+      "liberalism": -15
     }
   },
   "migrantPolicy": {
@@ -546,21 +526,21 @@
   },
   "vassilikoEuboea": {
     "image": "image/vassilikoSite.jpg",
-    "question": "A conflict arose when local church authorities planned to erect a large religious structure on the archaeological site of Vassiliko in Euboea. Archaeologists warned that the church would damage significant ancient ruins, including parts of a classical settlement. What would the government's opinion be?",
+    "question": "A conflict arose when local church authorities planned to erect a large religious structure on the archaeological site of Vassiliko in Euboea. Archaeologists warned that the church would damage significant ancient ruins. What would the government's opinion be?",
     "yes": "Support church construction for local tradition",
     "no": "Protect the ancient settlement by denying the permit",
     "yesDelta": {
-      "localFaith": 7,
-      "antiquity": -5
+      "religion": 10,
+      "antiquity": -15
     },
     "noDelta": {
-      "antiquity": 9,
-      "localFaith": -3
+      "antiquity": 10,
+      "religion": -10
     }
   },
   "mountAthosAccess": {
     "image": "image/mountAthos.jpg",
-    "question": "Mount Athos, a semi-autonomous monastic community, contains rich archaeological and Byzantine heritage. However, the region is closed to non-believers and women, which increases the difficulty of conducting conservation work or research. Should archaeologists be granted full access to Mount Athos for heritage research?",
+    "question": "Mount Athos, a semi-autonomous monastic community, contains rich archaeological and Byzantine heritage. However, the region is closed to non-believers and women, which increases the difficulty of conducting conservation work or research. Should archaeologists be granted full access to Mount Athos?",
     "yes": "Permit full access for academic documentation",
     "no": "Restrict access to protect monastic privacy",
     "yesDelta": {
@@ -576,7 +556,7 @@
   },
   "narrativeConflict": {
     "image": "image/education.jpg",
-    "question": "For a long time, the public education of our country gave triumphant reading of the spread of Orthodox church. Now, many liberals oppose this view, and call for more secular and academic approach to this subject. Should public education emphasize archaeological over ecclesiastical narratives of Christianization?",
+    "question": "For a long time, the public education of our country gave triumphant reading of the spread of Orthodox church. Now, many liberals oppose this view, and call for more secular approach to this subject. Should public education emphasize archaeological over ecclesiastical narratives of Christianization?",
     "yes": "Prioritize evidence-based academic approach",
     "no": "Support traditional Church accounts in national storytelling",
     "yesDelta": {
@@ -604,13 +584,23 @@
     }
   },
 
+  "title": {
+    "image": "image/minister.jpg",
+    "question":"Slide this card to continue.",
+    "yes": "further left",
+    "no": "further right",
+    "yesDelta": {
+    },
+    "noDelta": {
+    }
 
+  },
 
   "tutorial": {
     "image": "image/minister.jpg",
       "question":"Welcome to your office, dear prime minister. You are finally at the very top of the power of this country. However, there is no time to congratulate your victory, as your desk is already full of proposals waiting for your review. Would you be able to keep up with the expectation of the people of Hellas?",
-      "yes": "...",
-      "no": "...",
+      "yes": "Let's start",
+      "no": "Let's start",
       "yesDelta": {
       },
       "noDelta": {

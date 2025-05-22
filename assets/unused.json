@@ -41,6 +41,34 @@
     }
   },
 
+  "rhamnous": {
+    "image": "image/rhamnousSanctuary.jpg",
+    "question": "After a chapel was controversially built near Rhamnous temple, what should future policy be?",
+    "yes": "Relocate or redesign religious structures to preserve site authenticity",
+    "no": "Allow modern religious buildings near the ruins",
+    "yesDelta": {
+      "antiquity": 10,
+      "religion": -10
+    },
+    "noDelta": {
+      "religion": 10,
+      "antiquity": -10
+    }
+  },
+  "thorikos": {
+    "image": "image/thorikosTheater.jpg",
+    "question": "Should industrial companies near Thorikos be allowed to expand operations again?",
+    "yes": "Restrict quarrying to protect ancient mining and theater remains",
+    "no": "Permit industrial activity to revive the local economy",
+    "yesDelta": {
+      "antiquity": 10,
+      "economy": -5
+    },
+    "noDelta": {
+      "economy": 5,
+      "antiquity": -10
+    }
+  },
   "covidResponse": {
     "image": "image/mountAthos.jpg",
     "question": "Should the Church have complied fully with public health restrictions during the pandemic?",
