@@ -124,7 +124,7 @@
   },
   "corinth": {
     "image": "image/corinthTemple.jpg",
-    "question": "Ancient Corinth was one of the most important city-states in ancient Greece, known for its wealth and strategic location connecting the gulf of Corinth to the Aegean sea. Recently, constructions in Corinth have disturbed unexcavated remains. What would the government's opinion be?",
+    "question": "Ancient Corinth was one of the most important city-states, known for its wealth and strategic location connecting the gulf of Corinth to the Aegean sea. Recently, constructions in Corinth have disturbed unexcavated remains. What would the government's opinion be?",
     "yes": "Uphold archaeological protection",
     "no": "Support regional economic growth",
     "yesDelta": {
@@ -318,7 +318,7 @@
   },
   "asine": {
     "image": "image/asineExcavation.jpg",
-    "question": "Asine is a small site managed by the Swedish Institute. Should Greece expand international excavation rights at small rural sites?",
+    "question": "Asine is a small site managed by the Swedish Institute. Should the government expand international excavation rights at small rural sites?",
     "yes": "Encourage foreign institutions to invest in research",
     "no": "Prioritize domestic teams for local excavation",
     "yesDelta": {
@@ -410,13 +410,26 @@
       "economy": -10
     }
   },
+
+  "tripoli": {
+    "image": "image/tripoli.jpg",
+    "question": "A neighboring country has recently claimed that the battle at Tripoli, in which our independence fighters have fought against the oppressors, as a massacre, demanding recognition from our government. What should be our response?",
+    "yes": "Recognize the massacre in history education",
+    "no": "Not before they apologize for everything they've done.",
+    "yesDelta": {
+      "antiquity": -10
+    },
+    "noDelta": {
+      "liberalism": -10
+    }
+  },
   "sparta": {
     "image": "image/spartaSanctuary.jpg",
-    "question": "Sparta has been promoted through ???Should new Sparta visitor centers focus on historical accuracy or promote mythic Spartan identity?",
+    "question": "Sparta has been promoted through myths depicting them as egalitarian warriors, for more than three thousand years. Should new Sparta visitor centers focus on historical accuracy or promote mythic Spartan identity?",
     "yes": "Prioritize scholarly interpretation to counter extreme narratives",
     "no": "Encourage local pride by embracing Spartan myths",
     "yesDelta": {
-      "antiquity": 5
+      "antiquity": 10
     },
     "noDelta": {
       "antiquity": -10,
@@ -425,7 +438,7 @@
   },
   "mystras": {
     "image": "image/mystrasCitadel.jpg",
-    "question": "Should private donors influence restoration at Mystras in exchange for concessions?",
+    "question": "Mystras is known as the capital of the Byzantine Despotate of the Morea. Restoration of it may attract more tourists to support the local economy. Should private donors influence restoration at Mystras in exchange for concessions?",
     "yes": "Allow private funding with oversight to ensure preservation",
     "no": "Reject donor conditions to avoid compromising heritage values",
     "yesDelta": {
@@ -439,7 +452,7 @@
   },
   "churchStateRelations": {
     "image": "image/mountAthos.jpg",
-    "question": "As everyone knows, our government maintains strong ties with the Orthodox church, despite global trend of secularism. Should Greece fully separate church and state by ending public funding and religious oaths?",
+    "question": "As everyone knows, our government maintains strong ties with the Orthodox church, despite global trend of secularism. Should the government fully separate church and state by ending public funding and religious oaths?",
     "yes": "Revise the laws and remove church privileges",
     "no": "The Orthodox church is the foundation of our country",
     "yesDelta": {
@@ -585,7 +598,7 @@
   },
 
   "title": {
-    "image": "image/minister.jpg",
+    "image": "image/title.jpg",
     "question":"Slide this card to continue.",
     "yes": "further left",
     "no": "further right",
